@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useRef, useCallback, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import 'intersection-observer'
 
-export default ({ src, caption, ratio }) => {
+const video = ({ src, caption, ratio }) => {
   const [inViewRef, inView] = useInView({
     threshold: 1,
   })
@@ -42,11 +43,24 @@ export default ({ src, caption, ratio }) => {
 
   return (
     <div style={{ position: 'relative', margin: '2rem 1rem' }}>
-      <div style={{ paddingBottom: ratio * 100 + '%' }}/>
-      <video style={{ position: 'absolute', top: 0, left: 0 }} loop muted autoPlay playsInline ref={setRefs}>
+      <div style={{ paddingBottom: ratio * 100 + '%' }} />
+      <video
+        style={{ position: 'absolute', top: 0, left: 0 }}
+        loop
+        muted
+        autoPlay
+        playsInline
+        ref={setRefs}
+      >
         <source src={src} type="video/mp4" />
       </video>
-      {caption && <figcaption style={{ fontSize: '.9rem', textAlign: 'center' }}>{caption}</figcaption>}
+      {caption && (
+        <figcaption style={{ fontSize: '.9rem', textAlign: 'center' }}>
+          {caption}
+        </figcaption>
+      )}
     </div>
   )
 }
+
+export default video
