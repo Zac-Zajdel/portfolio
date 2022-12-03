@@ -10,12 +10,12 @@
     "debug": "NODE_OPTIONS='--inspect' next",
     "start": "next start",
     "build": "next build",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+    "lint": "eslint --ignore-path .gitignore \"*.+(ts|js|tsx)\"",
+    "format": "prettier --ignore-path .gitignore \"*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "./src/**/*.{ts,js,jsx,tsx}": [
+    "*.{ts,js,jsx,tsx}": [
       "eslint --ignore-path .gitignore --fix",
       "prettier --ignore-path .gitignore --write"
     ]

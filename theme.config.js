@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable import/no-anonymous-default-export */
 import { useRouter } from "next/router";
 
 const Logo = ({ height }) => (
@@ -154,7 +156,7 @@ export default {
           <a
             href="https://vercel.com/?utm_source=swr_zh-cn"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
             <span className="mr-2">由</span>
@@ -169,7 +171,7 @@ export default {
           <a
             href="https://vercel.com/?utm_source=swr_es-es"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
             <span className="mr-2">Desarrollado por</span>
@@ -183,7 +185,7 @@ export default {
           <a
             href="https://vercel.com/?utm_source=swr_es-es"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
             <span className="mr-2">Desenvolvido por</span>
@@ -197,7 +199,7 @@ export default {
           <a
             href="https://vercel.com/?utm_source=swr_ja"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
             <span className="mr-2">提供</span>
@@ -211,7 +213,7 @@ export default {
           <a
             href="https://vercel.com/?utm_source=swr_ko"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
             <span className="mr-2">Powered by</span>
@@ -225,7 +227,7 @@ export default {
           <a
             href="https://vercel.com/?utm_source=swr_ru"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
             <span className="mr-2">Работает на</span>
@@ -239,7 +241,7 @@ export default {
           <a
             href="https://vercel.com/?utm_source=swr"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
             <span className="mr-1">Powered by</span>
