@@ -4,16 +4,15 @@
     "type": "page",
     "hidden": true
   },
-  "docs": {
-    "title": "Docs",
-    "type": "page"
-  },
-  "examples": {
-    "title": "Examples",
-    "type": "page"
-  },
   "blog": {
     "title": "Blog",
+    "type": "page",
+    "theme": {
+      "sidebar": false
+    }
+  },
+  "about": {
+    "title": "About Me",
     "type": "page",
     "theme": {
       "sidebar": false
