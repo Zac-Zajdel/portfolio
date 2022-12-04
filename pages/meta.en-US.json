@@ -12,7 +12,7 @@
     }
   },
   "about": {
-    "title": "About Me",
+    "title": "About",
     "type": "page",
     "theme": {
       "sidebar": false

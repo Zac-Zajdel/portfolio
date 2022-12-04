@@ -1,3 +1,7 @@
 {
-  "swr-v1": "Announcing SWR 1.0"
+  "authentication-with-nextauth": "Easy authentication with NextAuth.js",
+  "prisma-and-nextjs": "Using Prisma with Next.js & TypeScript",
+  "terminal-aliases": "Create Customer Terminal Aliases",
+  "composition-api": "Composition API Syntax",
+  "add-dependabot": "Add Dependabot to your project"
 }

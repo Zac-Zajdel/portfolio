@@ -2,12 +2,11 @@ import { getPagesUnderRoute } from 'nextra/context'
 import Link from 'next/link'
 
 export default function BlogIndex({ more = 'Read more' }) {
-  return getPagesUnderRoute('/blog').map((page) => {
+  return getPagesUnderRoute('/blog').map((page, index) => {
     // Alias `<a>` to avoid it being replaced by MDX components.
     const A = 'a'
     return (
-      // eslint-disable-next-line react/jsx-key
-      <div className="">
+      <div key={index}>
         <h3>
           <Link href={page.route}>
             <A style={{ color: 'inherit', textDecoration: 'none' }}>
