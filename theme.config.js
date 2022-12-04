@@ -21,7 +21,7 @@ const Vercel = ({ height = 20 }) => (
 )
 
 export default {
-  projectLink: 'https://github.com/Zac-Zajdel/portfolio',
+  projectLink: 'https://github.com/Zac-Zajdel',
   docsRepositoryBase: 'https://github.com/vercel/swr-site/blob/master/pages',
   titleSuffix: '',
   search: true,
@@ -106,19 +106,5 @@ export default {
   footerEditLink: () => {
     return 'Edit this page on GitHub →'
   },
-  footerText: () => {
-    return (
-      <a
-        href="https://vercel.com/?utm_source=swr"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center no-underline text-current font-semibold"
-      >
-        <span className="mr-1">Powered by</span>
-        <span>
-          <Vercel />
-        </span>
-      </a>
-    )
-  },
+  footerText: false,
 }
