@@ -1,28 +1,19 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable import/no-anonymous-default-export */
-import { useRouter } from 'next/router'
-
 export default {
   projectLink: 'https://github.com/Zac-Zajdel',
-  docsRepositoryBase: 'https://github.com/vercel/swr-site/blob/master/pages',
+  docsRepositoryBase: 'https://github.com/Zac-Zajdel/portfolio/tree/main/pages',
   titleSuffix: '',
   search: true,
   staticImage: true,
   unstable_flexsearch: true,
   floatTOC: true,
-  feedbackLink: 'Question? Give us feedback →',
+  feedbackLink: 'Question or feedback? Let me know →',
   feedbackLabels: 'feedback',
   logo: () => {
     return <>Learn With Zac</>
   },
   head: ({ title, meta }) => {
-    const { route } = useRouter()
-
-    const ogImage =
-      meta.image ||
-      `https://swr-card.vercel.app${
-        /\/index\.+/.test(route) ? '' : '?title=' + encodeURIComponent(title)
-      }`
+    const ogImage = meta.image
 
     return (
       <>
@@ -57,27 +48,24 @@ export default {
           name="description"
           content={
             meta.description ||
-            'SWR is a React Hooks library for data fetching. SWR first returns the data from cache (stale), then sends the fetch request (revalidate), and finally comes with the up-to-date data again.'
+            'Learn With Zac is Zac Zajdels personal blog and portfolio showing my passion and all the cool things I have built in my career.'
           }
         />
         <meta
           name="og:description"
           content={
             meta.description ||
-            'SWR is a React Hooks library for data fetching. SWR first returns the data from cache (stale), then sends the fetch request (revalidate), and finally comes with the up-to-date data again.'
+            'Learn With Zac is Zac Zajdels personal blog and portfolio showing my passion and all the cool things I have built in my career.'
           }
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@vercel" />
+        <meta name="twitter:site" content="@zac_zajdel" />
         <meta name="twitter:image" content={ogImage} />
         <meta name="og:title" content={title ? title : 'Learn with Zac'} />
         <meta name="og:image" content={ogImage} />
         <meta name="apple-mobile-web-app-title" content="Learn with Zac" />
       </>
     )
-  },
-  footerEditLink: () => {
-    return 'Edit this page on GitHub →'
   },
   footerText: false,
 }
