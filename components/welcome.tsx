@@ -18,7 +18,7 @@ const Welcome = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center pt-8">
+        <div className="flex flex-col items-center lg:pt-0 xl:pt-8">
           <Image
             src="/static/me.jpeg"
             alt="avatar"
