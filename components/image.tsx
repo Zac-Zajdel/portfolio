@@ -5,7 +5,7 @@ interface ImageProps {
   alt: string;
   width: number;
   height: number;
-  className: string;
+  className?: string;
 }
 
 const Image = ({ src, alt, width, height, className }: ImageProps) => {

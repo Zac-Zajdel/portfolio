@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { useRouter } from 'next/router'
 
 const Logo = ({ height }) => (
   <>
@@ -27,6 +28,15 @@ export default {
   floatTOC: true,
   feedbackLink: 'Question or feedback? Let me know →',
   feedbackLabels: 'feedback',
+  gitTimestamp: ({ timestamp }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const route = useRouter()
+    if (['/index.en-US', '/about.en-US'].includes(route.pathname)) {
+      return <></>
+    } else {
+      return <>Last updated {timestamp.toString()}</>
+    }
+  },
   logo: () => {
     return <Logo height={30} />
   },
