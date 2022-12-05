@@ -7,19 +7,19 @@ export default function BlogIndex({ more = 'Read more' }) {
     const A = 'a'
     return (
       <div key={index}>
-        <h3>
+        <h3 className="-mb-4">
           <Link href={page.route}>
             <A style={{ color: 'inherit', textDecoration: 'none' }}>
               {page.meta?.title || page.frontMatter?.title || page.name}
             </A>
           </Link>
         </h3>
-        <p className="opacity-80">
+        <p className="opacity-80 mb-2">
           {page.frontMatter?.description}{' '}
           <Link href={page.route}>{more + ' →'}</Link>
         </p>
         {page.frontMatter?.date ? (
-          <p className="opacity-50 text-sm">{page.frontMatter.date}</p>
+          <span className="opacity-50 text-sm">{page.frontMatter.date}</span>
         ) : null}
       </div>
     )

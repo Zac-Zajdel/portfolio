@@ -10,6 +10,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.45.0
   '@typescript-eslint/parser': ^5.45.0
   autoprefixer: ^10.4.2
+  dayjs: ^1.11.6
   eslint: ^8.29.0
   eslint-config-next: ^13.0.6
   eslint-config-prettier: ^8.5.0
@@ -34,6 +35,7 @@ specifiers:
 
 dependencies:
   '@reach/skip-nav': 0.16.0_sfoxds7t5ydpegc3knd667wn6m
+  dayjs: 1.11.6
   focus-visible: 5.2.0
   intersection-observer: 0.10.0
   markdown-to-jsx: 6.11.4_react@17.0.2
@@ -1534,6 +1536,10 @@ packages:
     resolution: {integrity: sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==}
     engines: {node: '>=8'}
     dev: true
+
+  /dayjs/1.11.6:
+    resolution: {integrity: sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ==}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}

@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { useRouter } from 'next/router'
+import dayjs from 'dayjs'
 
 const Logo = ({ height }) => (
   <>
@@ -32,9 +33,9 @@ export default {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const route = useRouter()
     if (['/index.en-US', '/about.en-US'].includes(route.pathname)) {
-      return <></>
+      return null
     } else {
-      return <>Last updated {timestamp.toString()}</>
+      return <>Last updated {dayjs(timestamp).format('MMMM D, YYYY')}</>
     }
   },
   logo: () => {
