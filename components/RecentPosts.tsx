@@ -1,13 +1,14 @@
-import { getPagesUnderRoute } from 'nextra/context'
-import Image from 'components/image'
+// @ts-ignore
+import { getPagesUnderRoute } from "nextra/context";
+import Image from "components/image";
 
 interface PageMetadata {
   frontMatter: {
-    date: string,
-    description: string,
+    date: string;
+    description: string;
   };
   meta: {
-    title: string,
+    title: string;
   };
   locale: string;
   name: string;
@@ -15,7 +16,7 @@ interface PageMetadata {
 }
 
 const RecentPosts = () => {
-  const threeRecentBlogs = getPagesUnderRoute('/blog').slice(0, 3)
+  const threeRecentBlogs = getPagesUnderRoute("/blog").slice(0, 3);
   return (
     <>
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-10 text-gray-900 dark:text-gray-100">
@@ -55,11 +56,11 @@ const RecentPosts = () => {
                 </div>
               </a>
             </div>
-          )
+          );
         })}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default RecentPosts
+export default RecentPosts;
