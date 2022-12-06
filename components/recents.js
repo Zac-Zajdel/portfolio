@@ -12,7 +12,10 @@ const RecentPosts = () => {
       <div className="my-6 flex flex-wrap justify-center gap-x-8 gap-y-10">
         {threeRecentBlogs.map((page, index) => {
           return (
-            <div key={index}>
+            <div
+              key={index}
+              className="transform transition duration-300 hover:scale-105"
+            >
               <Link href={page.route}>
                 <span className="flex cursor-pointer flex-col overflow-hidden w-[250px] rounded-xl border border-solid bg-slate-800 dark:bg-black hover:border-gray-200 no-underline">
                   <div className="flex grow flex-col p-5">
