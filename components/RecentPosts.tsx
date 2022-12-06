@@ -1,4 +1,3 @@
-// @ts-ignore
 import { getPagesUnderRoute } from "nextra/context";
 import Image from "components/image";
 
