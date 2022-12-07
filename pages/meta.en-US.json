@@ -11,6 +11,10 @@
       "sidebar": false
     }
   },
+  "snippets": {
+    "title": "Snippets",
+    "type": "page"
+  },
   "about": {
     "title": "About",
     "type": "page",
