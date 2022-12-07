@@ -9,7 +9,11 @@ export default function BlogIndex({ more = 'Read more' }) {
   const handleChange = (event) => {
     const regex = new RegExp(`\\s*${event.target.value.toLowerCase()}\\s*`, 'i')
     setFilteredBlogs(
-      blogs.filter((blog) => regex.test(blog.meta.title.toLowerCase()))
+      blogs.filter(
+        (blog) =>
+          regex.test(blog.meta.title.toLowerCase()) ||
+          regex.test(blog.frontMatter.description.toLowerCase())
+      )
     )
   }
 
