@@ -1,0 +1,25 @@
+---
+date: 'December 9th, 2022'
+---
+
+# Filter using `match()` function
+
+## Code
+
+```jsx
+const frameworks = [
+  { name: "React" },
+  { name: "Vue" },
+]
+
+const [filteredFrameworks, setFilteredFrameworks] = useState(frameworks)
+
+const handleChange = (event: HTMLInputElement) => {
+  const input = event.target.value.toLowerCase()
+  setFilteredFrameworks(
+    frameworks.filter((framwork) => framework.name.toLowerCase().match(input))
+  )
+}
+```
+
+## Usage
