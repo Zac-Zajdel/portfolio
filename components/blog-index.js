@@ -2,17 +2,17 @@ import { getPagesUnderRoute } from 'nextra/context'
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function BlogIndex({ more = 'Read more' }) {
+export default function BlogIndex() {
   const blogs = getPagesUnderRoute('/blog')
   const [filteredBlogs, setFilteredBlogs] = useState(blogs)
 
   const handleChange = (event) => {
-    const regex = new RegExp(`\\s*${event.target.value.toLowerCase()}\\s*`, 'i')
+    const input = event.target.value.toLowerCase()
     setFilteredBlogs(
       blogs.filter(
         (blog) =>
-          regex.test(blog.meta.title.toLowerCase()) ||
-          regex.test(blog.frontMatter.description.toLowerCase())
+          blog.meta.title.toLowerCase().match(input) ||
+          blog.frontMatter.description.toLowerCase().match(input)
       )
     )
   }
@@ -55,7 +55,7 @@ export default function BlogIndex({ more = 'Read more' }) {
             </h3>
             <p className="opacity-80 mb-2">
               {page.frontMatter?.description}{' '}
-              <Link href={page.route}>{more + ' →'}</Link>
+              <Link href={page.route}>Read more →</Link>
             </p>
             {page.frontMatter?.date ? (
               <span className="opacity-50 text-sm">
