@@ -1,9 +1,14 @@
 import Image from './image'
+import useSWR from 'swr'
+import { SiSpotify } from 'react-icons/si'
 
 export default function AboutIndex() {
+  const fetcher = (url) => fetch(url).then((r) => r.json())
+  const { data } = useSWR('/api/spotify', fetcher)
+
   return (
     <>
-      <div className="">
+      <div>
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             About
@@ -27,7 +32,50 @@ export default function AboutIndex() {
             <div className="text-gray-500 dark:text-gray-400">
               Indiana University of Pennsylvania
             </div>
+            <div>
+              <section className="">
+                <a
+                  target="_blank"
+                  rel="noopener noreferer noreferrer"
+                  href={
+                    data?.isPlaying
+                      ? data.songUrl
+                      : 'https://open.spotify.com/user/erence21?si=yTsrZT5JSHOp7tn3ist7Ig'
+                  }
+                  className="relative flex items-center space-x-4 rounded-md p-5 transition-shadow hover:shadow-md no-underline"
+                >
+                  <div className="w-16">
+                    {data?.isPlaying ? (
+                      <Image
+                        src={data?.albumImageUrl}
+                        alt={data?.album}
+                        width={80}
+                        height={80}
+                        className="w-16 shadow-sm"
+                      />
+                    ) : (
+                      <SiSpotify size={64} color={'#1ED760'} />
+                    )}
+                  </div>
+
+                  <div className="flex-1">
+                    <p className="text-sm font-bold text-ellipsis overflow-hidden">
+                      {data?.isPlaying ? data.title : 'Not Listening'}
+                    </p>
+                    <span className="font-dark text-xs">
+                      {data?.isPlaying ? data.artist : 'Spotify'}
+                    </span>
+                  </div>
+                  {data?.isPlaying ? (
+                    <div className="absolute -right-4 bottom-6">
+                      <SiSpotify size={20} color={'#1ED760'} />
+                    </div>
+                  ) : null}
+                </a>
+              </section>
+            </div>
           </div>
+
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">
             <div>Hey Fellow Tech Enthusiast,</div>
             <br />

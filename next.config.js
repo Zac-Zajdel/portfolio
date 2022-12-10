@@ -10,4 +10,7 @@ module.exports = withNextra({
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
+  images: {
+    domains: ['i.scdn.co'],
+  },
 })
