@@ -3,7 +3,7 @@ import Image from './image'
 export default function AboutIndex() {
   return (
     <>
-      <div className="divide-y">
+      <div className="">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             About
@@ -29,7 +29,7 @@ export default function AboutIndex() {
             </div>
           </div>
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">
-            <div>Hey fellow tech enthusiast,</div>
+            <div>Hey Fellow Tech Enthusiast,</div>
             <br />
             My name is Zac and I am based in Dallas, Texas focusing my career on
             web development technologies. You can usually find me working on
@@ -49,6 +49,59 @@ export default function AboutIndex() {
             can be transferred to others. I wanna give to the community rather
             than only take so this is my attempt and if you made it this far
             then let&apos;s connect :)
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-2 pt-6 md:space-y-5">
+        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          Experience
+        </h1>
+      </div>
+      <div className="pt-8 pb-8 max-w-none xl:col-span-2 text-gray-900 dark:text-gray-100">
+        <div className="my-3">
+          <div className="flex flex-row text-xl">
+            <span>Lead Full Stack Software Engineer</span>{' '}
+            <span>&nbsp;-&nbsp;</span>{' '}
+            <span className="text-primary-color dark:text-primary-color-dark">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.rimsys.io/"
+                className="no-underline"
+              >
+                Rimsys
+              </a>
+            </span>
+          </div>
+          <div>
+            <div className="p-1 font-mono text-gray-500 dark:text-gray-400 text-sm">
+              January 2020 - Current
+            </div>
+            <div className="p-2 text-gray-900 dark:text-gray-100">
+              <div className="flex flex-row">
+                <div className="mr-2 text-lg"> ‣</div>
+                <div>
+                  A significant contributor of rebuilding Rimsys from the ground
+                  up using modern technologies and instituting best practices.
+                </div>
+              </div>
+              <div className="flex flex-row ">
+                <div className="mr-2 text-lg"> ‣</div>
+                <div>
+                  A team lead of several devs organizing sprint objectives, pull
+                  request reviews, deployments, and meetings.
+                </div>
+              </div>
+              <div className="flex flex-row items-top">
+                <div className="mr-2 text-lg"> ‣</div>
+                <div>
+                  Handling a diverse spectrum of projects on a daily basis, such
+                  as helping with daily operations, deployments, customer
+                  support, architecture meetings, new features, etc...
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
