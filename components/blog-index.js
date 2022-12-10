@@ -2,7 +2,7 @@ import { getPagesUnderRoute } from 'nextra/context'
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function BlogIndex({ more = 'Read more' }) {
+export default function BlogIndex() {
   const blogs = getPagesUnderRoute('/blog')
   const [filteredBlogs, setFilteredBlogs] = useState(blogs)
 
@@ -55,7 +55,7 @@ export default function BlogIndex({ more = 'Read more' }) {
             </h3>
             <p className="opacity-80 mb-2">
               {page.frontMatter?.description}{' '}
-              <Link href={page.route}>{more + ' →'}</Link>
+              <Link href={page.route}>Read more →</Link>
             </p>
             {page.frontMatter?.date ? (
               <span className="opacity-50 text-sm">
