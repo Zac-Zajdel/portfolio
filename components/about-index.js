@@ -62,11 +62,11 @@ export default function AboutIndex() {
                     <p className="text-sm font-bold text-ellipsis overflow-hidden">
                       {data?.isPlaying ? data.title : 'Not Listening'}
                     </p>
-                    <span className="font-dark text-xs">
+                    <span className="font-dark text-xs flex justify-between items-center pt-2">
                       <span>{data?.isPlaying ? data.artist : 'Spotify'}</span>
                       <span>
                         {data?.isPlaying ? (
-                          <div className="absolute -right-2 bottom-6">
+                          <div className="pl-2">
                             <SiSpotify size={20} color={'#1ED760'} />
                           </div>
                         ) : null}
