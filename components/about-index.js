@@ -42,7 +42,7 @@ export default function AboutIndex() {
                       ? data.songUrl
                       : 'https://open.spotify.com/user/erence21?si=yTsrZT5JSHOp7tn3ist7Ig'
                   }
-                  className="relative flex items-center space-x-4 rounded-md p-5 transition-shadow hover:shadow-md no-underline"
+                  className="relative flex items-center space-x-4 rounded-md pl-2 p-5 transition-shadow hover:shadow-md no-underline"
                 >
                   <div className="w-16">
                     {data?.isPlaying ? (
@@ -63,14 +63,16 @@ export default function AboutIndex() {
                       {data?.isPlaying ? data.title : 'Not Listening'}
                     </p>
                     <span className="font-dark text-xs">
-                      {data?.isPlaying ? data.artist : 'Spotify'}
+                      <span>{data?.isPlaying ? data.artist : 'Spotify'}</span>
+                      <span>
+                        {data?.isPlaying ? (
+                          <div className="absolute -right-1 bottom-6">
+                            <SiSpotify size={20} color={'#1ED760'} />
+                          </div>
+                        ) : null}
+                      </span>
                     </span>
                   </div>
-                  {data?.isPlaying ? (
-                    <div className="absolute -right-4 bottom-6">
-                      <SiSpotify size={20} color={'#1ED760'} />
-                    </div>
-                  ) : null}
                 </a>
               </section>
             </div>
