@@ -66,7 +66,7 @@ export default function AboutIndex() {
                       <span>{data?.isPlaying ? data.artist : 'Spotify'}</span>
                       <span>
                         {data?.isPlaying ? (
-                          <div className="absolute -right-1 bottom-6">
+                          <div className="absolute -right-2 bottom-6">
                             <SiSpotify size={20} color={'#1ED760'} />
                           </div>
                         ) : null}
