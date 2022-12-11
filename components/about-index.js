@@ -40,7 +40,7 @@ export default function AboutIndex() {
                   href={
                     data?.isPlaying
                       ? data.songUrl
-                      : 'https://open.spotify.com/user/erence21?si=yTsrZT5JSHOp7tn3ist7Ig'
+                      : 'https://open.spotify.com/user/zaczajdel213'
                   }
                   className="relative flex items-center space-x-4 rounded-md pl-2 p-5 transition-shadow hover:shadow-md no-underline"
                 >
