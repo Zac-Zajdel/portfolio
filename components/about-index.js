@@ -54,8 +54,8 @@ export default function AboutIndex() {
           <br />
           <br />I created this blog in hopes that what I learn and discover can
           be transferred to others. I wanna give to the community rather than
-          only take so this is my attempt and if you made it this far then
-          let&apos;s connect :)
+          only take so this is my attempt and if you made it this far then go
+          look around and let&apos;s connect :)
         </div>
       </div>
 
@@ -67,7 +67,7 @@ export default function AboutIndex() {
           Experience
         </h1>
       </div>
-      <div className="py-8 max-w-none xl:col-span-2 text-gray-900 dark:text-gray-100">
+      <div className="pt-8 max-w-none xl:col-span-2 text-gray-900 dark:text-gray-100">
         <div className="my-3">
           <div className="flex flex-row text-xl">
             <span>Lead Full Stack Software Engineer</span>{' '}

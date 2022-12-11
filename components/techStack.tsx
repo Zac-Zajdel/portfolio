@@ -52,6 +52,18 @@ const knowledge: Array<TechProps> = [
     url: 'https://vuejs.org/',
   },
   {
+    name: 'Node',
+    icon: SiNodedotjs,
+    fill: '#73CE4C',
+    url: 'https://nodejs.org/en/',
+  },
+  {
+    name: 'TypeScript',
+    icon: SiTypescript,
+    fill: '#007ACC',
+    url: 'https://www.typescriptlang.org/',
+  },
+  {
     name: 'Laravel',
     icon: SiLaravel,
     fill: '#F05340',
@@ -64,16 +76,16 @@ const knowledge: Array<TechProps> = [
     url: 'https://www.php.net/',
   },
   {
-    name: 'TypeScript',
-    icon: SiTypescript,
-    fill: '#007ACC',
-    url: 'https://www.typescriptlang.org/',
+    name: 'Vapor',
+    icon: SiVapor,
+    fill: '#3EB9FF',
+    url: 'https://vapor.laravel.com/',
   },
   {
-    name: 'Vercel',
-    icon: SiVercel,
-    fill: '#E10990',
-    url: 'https://vercel.com/',
+    name: 'Tailwind CSS',
+    icon: SiTailwindcss,
+    fill: '#15C2B8',
+    url: 'https://tailwindcss.com/',
   },
   {
     name: 'MySQL',
@@ -100,28 +112,16 @@ const knowledge: Array<TechProps> = [
     url: 'https://www.prisma.io/',
   },
   {
+    name: 'Vercel',
+    icon: SiVercel,
+    fill: '#E10990',
+    url: 'https://vercel.com/',
+  },
+  {
     name: 'AWS',
     icon: SiAmazonaws,
     fill: '#FF9900',
     url: 'https://aws.amazon.com/',
-  },
-  {
-    name: 'Vapor',
-    icon: SiVapor,
-    fill: '#3EB9FF',
-    url: 'https://vapor.laravel.com/',
-  },
-  {
-    name: 'Node',
-    icon: SiNodedotjs,
-    fill: '#73CE4C',
-    url: 'https://nodejs.org/en/',
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: SiTailwindcss,
-    fill: '#15C2B8',
-    url: 'https://tailwindcss.com/',
   },
 ]
 
