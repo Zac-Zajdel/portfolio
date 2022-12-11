@@ -5,14 +5,12 @@ import {
   SiNextdotjs,
   SiNuxtdotjs,
   SiTypescript,
-  // SiJavascript,
-  // SiHtml5,
-  // SiCss3,
   SiTailwindcss,
   SiMysql,
   SiPostgresql,
   SiNodedotjs,
   SiPhp,
+  SiPrisma,
   SiLaravel,
   SiVercel,
   SiVapor,
@@ -32,7 +30,7 @@ const knowledge: Array<TechProps> = [
   {
     name: 'Next',
     icon: SiNextdotjs,
-    fill: '#53C1DE',
+    fill: '#0370F3',
     url: 'https://nextjs.org/',
   },
   {
@@ -56,96 +54,87 @@ const knowledge: Array<TechProps> = [
   {
     name: 'Laravel',
     icon: SiLaravel,
-    fill: '#53C1DE',
+    fill: '#F05340',
     url: 'https://laravel.com/',
   },
   {
     name: 'PHP',
     icon: SiPhp,
-    fill: '#53C1DE',
+    fill: '#6383BB',
     url: 'https://www.php.net/',
   },
   {
     name: 'TypeScript',
     icon: SiTypescript,
-    fill: '#53C1DE',
+    fill: '#007ACC',
     url: 'https://www.typescriptlang.org/',
   },
   {
     name: 'Vercel',
     icon: SiVercel,
-    fill: '#53C1DE',
+    fill: '#E10990',
     url: 'https://vercel.com/',
   },
   {
     name: 'MySQL',
     icon: SiMysql,
-    fill: '#53C1DE',
+    fill: '#E48E1A',
     url: 'https://www.mysql.com/',
   },
   {
     name: 'PostgreSQL',
     icon: SiPostgresql,
-    fill: '#53C1DE',
+    fill: '#779AB6',
     url: 'https://www.postgresql.org/',
   },
   {
     name: 'PlanetScale',
     icon: IoPlanetSharp,
-    fill: '#53C1DE',
+    fill: '#5D48AF',
     url: 'https://planetscale.com/',
+  },
+  {
+    name: 'Prisma',
+    icon: SiPrisma,
+    fill: '#308988',
+    url: 'https://www.prisma.io/',
   },
   {
     name: 'AWS',
     icon: SiAmazonaws,
-    fill: '#53C1DE',
+    fill: '#FF9900',
     url: 'https://aws.amazon.com/',
   },
   {
     name: 'Vapor',
     icon: SiVapor,
-    fill: '#53C1DE',
+    fill: '#3EB9FF',
     url: 'https://vapor.laravel.com/',
   },
-  // {
-  //   name: 'JavaScript',
-  //   icon: SiJavascript,
-  //   url: 'https://www.javascript.com/',
-  // },
-  // {
-  //   name: 'HTML',
-  //   icon: SiHtml5,
-  //   url: 'https://html.com/',
-  // },
   {
     name: 'Node',
     icon: SiNodedotjs,
-    fill: '#53C1DE',
+    fill: '#73CE4C',
     url: 'https://nodejs.org/en/',
   },
   {
     name: 'Tailwind CSS',
     icon: SiTailwindcss,
-    fill: '#53C1DE',
+    fill: '#15C2B8',
     url: 'https://tailwindcss.com/',
   },
-  // {
-  //   name: 'CSS',
-  //   icon: SiCss3,
-  //   url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
-  // },
 ]
 
 export default function TechStack() {
   return (
     <>
-      <div className="space-y-2 md:space-y-5 pt-6">
+      <div className="space-y-2 md:space-y-5 pt-8">
         <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           Tech Stack
         </h1>
       </div>
 
-      <div className="mt-10 flex flex-wrap justify-center">
+      <div className="mt-8 flex flex-wrap justify-center">
         {knowledge.map((item: TechProps) => {
           return (
             <TechStackCard
