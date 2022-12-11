@@ -29,14 +29,8 @@ export default {
   floatTOC: true,
   feedbackLink: 'Question or feedback? Let me know →',
   feedbackLabels: 'feedback',
-  gitTimestamp: ({ timestamp }) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const route = useRouter()
-    if (['/index.en-US', '/about.en-US'].includes(route.pathname)) {
-      return null
-    } else {
-      return <>Last updated {dayjs(timestamp).format('MMMM D, YYYY')}</>
-    }
+  gitTimestamp: () => {
+    return null
   },
   logo: () => {
     return <Logo height={30} />
