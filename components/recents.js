@@ -17,7 +17,7 @@ const RecentPosts = () => {
               className="transform transition duration-300 hover:scale-105"
             >
               <Link href={page.route}>
-                <span className="flex cursor-pointer flex-col overflow-hidden w-[250px] rounded-xl border border-solid bg-slate-800 dark:bg-black hover:border-gray-200 no-underline">
+                <span className="flex cursor-pointer flex-col overflow-hidden w-[250px] min-h-[100%] rounded-xl border border-solid bg-slate-800 dark:bg-black hover:border-gray-200 no-underline">
                   <div className="flex grow flex-col p-5">
                     <h2 className="m-0 text-lg font-bold leading-7 text-white dark:text-gray-200 line-clamp-3">
                       {page.meta.title}
