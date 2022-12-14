@@ -1,4 +1,4 @@
-import Image from './image'
+import Image from '../image'
 import useSWR from 'swr'
 import { SiSpotify } from 'react-icons/si'
 

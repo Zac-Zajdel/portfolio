@@ -1,6 +1,6 @@
 import Image from './image'
-import SpotifyCard from './spotifyCard'
-import TechStack from './techStack'
+import SpotifyCard from '@/components/about/spotifyCard'
+import TechStack from './about/techStack'
 
 export default function AboutIndex() {
   return (
