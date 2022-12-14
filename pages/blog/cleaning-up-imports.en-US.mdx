@@ -5,19 +5,17 @@ date: 'Dec 13th, 2022'
 
 # Clean up imports
 
-We can all agree when importing a file in some nested directory and configuring a import such as `../../../sidebar.tsx` is not clear which directory it is coming from.
+We can all agree when importing a file in some nested directory and configuring an import such as `../../../sidebar.tsx` is not clear which directory it is coming from.
 
-This is something most junior developers do not know how to overcome with a cleaner syntax.
-Depending if your project uses TypeScript or not, you can create a file in the root directory of your project called `tsconfig.json` or `jsconfig.json`.
+A lot of junior developers do not know of another way to write imports with a much more readable syntax.
 
 ## What are these config files?
 
-- A `tsconfig` or `jsconfig` json file should live within your projects root directory.
-- They help adjust settings related to how we want the compiler to understand the architecture our projects
-- A further explanation on these files and their purpose can be found [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#:~:text=The%20tsconfig.json%20file%20specifies,compiler%20flags%20enabled%20by%20default.)
+- A `tsconfig.json` or `jsconfig.json` file should live within your projects root directory.
+- They help adjust settings related to how we want the compiler to understand the architecture our projects.
+- A further explanation on these files and their purpose can be found [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#:~:text=The%20tsconfig.json%20file%20specifies,compiler%20flags%20enabled%20by%20default.).
 
-
-## Implement in your own project
+## How to implement in your project
 
 Generate a `tsconfig.json` file in your root directory and add the following configuration to the paths key:
 ```json
