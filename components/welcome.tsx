@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { IconContext } from 'react-icons'
 import { FaDiscord, FaLinkedin } from 'react-icons/fa'
-import { AiTwotoneMail } from 'react-icons/ai'
+import { AiFillMail } from 'react-icons/ai'
 
 const Welcome = () => {
   return (
@@ -34,7 +34,7 @@ const Welcome = () => {
                       'fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300',
                   }}
                 >
-                  <AiTwotoneMail size={24} />
+                  <AiFillMail size={24} />
                 </IconContext.Provider>
               </a>
               <a
