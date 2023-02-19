@@ -22,16 +22,17 @@ export default function BlogIndex() {
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-8 text-gray-900 dark:text-gray-100">
         Blog Posts
       </h1>
-      <div className="relative max-w-lg">
+      <div className="relative mt-6 flex w-[80%]">
         <input
-          aria-label="Search articles"
           type="text"
-          placeholder="Search articles"
-          className="block w-full rounded-md border border-gray-300 dark:bg-white dark:bg-gray-800 px-4 py-2 text-gray-900 dark:border-gray-900 dark:text-gray-100"
+          className="block w-full px-3 py-2 leading-tight rounded-lg appearance-none focus:outline-none bg-gray-300/25 dark:bg-zinc-800/50 focus:ring-1 focus:ring-gray-200 focus:bg-white hover:bg-opacity-5 transition-colors dark:focus:bg-dark dark:focus:ring-gray-100 dark:focus:ring-opacity-20"
+          aria-label="Search articles"
+          placeholder="Search articles..."
+          spellcheck="false"
           onChange={handleChange}
         />
         <svg
-          className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
+          className="absolute right-3 top-1.5 h-6 w-6 bg-white dark:bg-dark dark:bg-opacity-50 text-gray-500 dark:text-gray-400 dark:border-gray-100 dark:border-opacity-20 border rounded p-1"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -45,24 +46,25 @@ export default function BlogIndex() {
         // Alias `<a>` to avoid it being replaced by MDX components.
         const A = 'a'
         return (
-          <div key={index}>
-            <h3 className="-mb-4">
-              <Link href={page.route}>
-                <A style={{ color: 'inherit', textDecoration: 'none' }}>
-                  {page.meta?.title || page.frontMatter?.title || page.name}
-                </A>
-              </Link>
-            </h3>
-            <p className="opacity-80 mb-2">
-              {page.frontMatter?.description}{' '}
-              <Link href={page.route}>Read more →</Link>
-            </p>
-            {page.frontMatter?.date ? (
-              <span className="opacity-50 text-sm">
-                {page.frontMatter.date}
-              </span>
-            ) : null}
-          </div>
+          <Link href={page.route} key={index}>
+            <div className="hover:bg-zinc-100/60 dark:hover:bg-zinc-900/50 p-4 rounded-xl mt-4 cursor-pointer w-[80%]">
+              <h3 className="-mb-4 -mt-0">
+                <Link href={page.route}>
+                  <A style={{ color: 'inherit', textDecoration: 'none' }}>
+                    {page.meta?.title || page.frontMatter?.title || page.name}
+                  </A>
+                </Link>
+              </h3>
+              <p className="opacity-80 mb-2">
+                {page.frontMatter?.description}{' '}
+              </p>
+              {page.frontMatter?.date ? (
+                <span className="opacity-50 text-sm">
+                  {page.frontMatter.date}
+                </span>
+              ) : null}
+            </div>
+          </Link>
         )
       })}
     </>
