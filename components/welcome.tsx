@@ -91,7 +91,7 @@ export default function Welcome() {
           </div>
 
           <div className="text-gray-900 dark:text-gray-200 text-sm">
-            Dallas, TX · 34.579° N, 48.681° W
+            Dallas, TX · 32.775° N, -96.809° W
           </div>
         </div>
         <div className="flex flex-col items-center lg:pt-0 xl:pt-8">
