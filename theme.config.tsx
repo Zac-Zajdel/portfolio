@@ -25,13 +25,16 @@ export default {
       return <Navbar />
     },
   },
-  editLink: {
-    text: "Edit this page on GitHub",
-  },
   project: {
     link: 'https://github.com/Zac-Zajdel',
   },
   docsRepositoryBase: 'https://github.com/Zac-Zajdel',
+  feedback: {
+    content: 'Suggestions? Let me know →',
+  },
+  editLink: {
+    text: null,
+  },
   footer: {
     component: null,
   },

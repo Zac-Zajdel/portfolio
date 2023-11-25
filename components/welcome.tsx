@@ -3,6 +3,7 @@ import { IconContext } from 'react-icons'
 import { FaDiscord, FaLinkedin } from 'react-icons/fa'
 import { AiFillMail } from 'react-icons/ai'
 import { BsTwitterX } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
 
 export default function Welcome() {
   return (
@@ -23,6 +24,22 @@ export default function Welcome() {
             </p>
 
             <div className="my-6 flex gap-6">
+              <a
+                className="group -m-1 p-1"
+                aria-label="Follow me on Github"
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/Zac-Zajdel"
+              >
+                <IconContext.Provider
+                  value={{
+                    className:
+                      'fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300',
+                  }}
+                >
+                  <FaGithub size={24} />
+                </IconContext.Provider>
+              </a>
               <a
                 className="group -m-1 p-1"
                 aria-label="Send me an email"

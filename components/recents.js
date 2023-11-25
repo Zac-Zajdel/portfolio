@@ -23,7 +23,7 @@ export default function RecentPosts() {
               key={index}
             >
               <Link href={page.route}>
-                <div className="relative flex h-full flex-col gap-6 rounded-2xl bg-zinc-100 p-8 dark:bg-zinc-900">
+                <div className="relative flex h-full flex-col gap-6 rounded-2xl bg-gray-100 p-8 dark:bg-zinc-900">
                   <div>
                     <h4 className="text-md font-semibold text-zinc-900 dark:text-white line-clamp-3">
                     {page.meta.title}
