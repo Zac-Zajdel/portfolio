@@ -36,10 +36,10 @@ export default function AboutIndex() {
           <div>Hey 👋</div>
           <br />
           I'm Zac, based in Dallas, Texas, honing my craft in web development.
-          Between tackling side projects,you'll catch me enjoying movies, constantly tuned into music, and hanging out with friends.
+          Between tackling side projects, you'll catch me enjoying movies, constantly tuned into music, and hanging out with friends.
           <br />
           <br />
-          In the tech realm, I'm a big fan for the React, Vue, Laravel, and a bunch of other game-changers that redefine how developers bring their ideas to life.
+          In the tech realm, I'm a big fan for React, Vue, Laravel, and a bunch of other technologies that redefine how developers bring their ideas to life.
           This industry never lets us get bored or complacent, and that's what makes it so invigorating.
           The commitment and generosity of developers worldwide inspire me to strive for excellence.
           <br />

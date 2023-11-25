@@ -1,9 +1,20 @@
 import Link from 'next/link'
 import Tilt from 'react-parallax-tilt';
 import { getPagesUnderRoute } from 'nextra/context'
+import { Folder, FrontMatter, MdxFile, Meta } from 'nextra';
+
+type Page = (MdxFile | Folder<Page>) & {
+  meta?: Exclude<Meta, string>;
+  frontMatter: FrontMatter;
+};
 
 export default function RecentPosts() {
-  const threeRecentBlogs = getPagesUnderRoute('/blogs').slice(0, 3)
+  const threeRecentBlogs = getPagesUnderRoute('/blogs')
+    .sort(
+      (a: Page, b: Page) =>
+        b.frontMatter.order - a.frontMatter.order,
+    )
+    .slice(0, 3)
 
   return (
     <>
