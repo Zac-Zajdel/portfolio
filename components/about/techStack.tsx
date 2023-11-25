@@ -130,13 +130,14 @@ export default function TechStack() {
       <div className="mt-8 flex flex-wrap justify-center">
         {knowledge.map((item: TechProps) => {
           return (
-            <TechStackCard
-              key={item.name}
-              name={item.name}
-              icon={item.icon}
-              fill={item.fill}
-              url={item.url}
-            />
+            <span key={item.name}>
+              <TechStackCard
+                name={item.name}
+                icon={item.icon}
+                fill={item.fill}
+                url={item.url}
+              />
+            </span>
           )
         })}
       </div>

@@ -6,7 +6,7 @@ import { BsTwitterX } from "react-icons/bs";
 
 export default function Welcome() {
   return (
-    <div className="divide-y">
+    <div>
       <div className="items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
         <div className="prose max-w-none pt-8 pb-2 xl:pb-8 dark:prose-dark xl:col-span-2">
           <div className="flex flex-col pr-8">
@@ -22,7 +22,7 @@ export default function Welcome() {
               Feel free to take a look around and hit me up on my socials below 😊
             </p>
 
-            <div className="mt-6 flex gap-6">
+            <div className="my-6 flex gap-6">
               <a
                 className="group -m-1 p-1"
                 aria-label="Send me an email"
@@ -89,6 +89,10 @@ export default function Welcome() {
               </a>
             </div>
           </div>
+
+          <div className="text-gray-900 dark:text-gray-200 text-sm">
+            Dallas, TX · 34.579° N, 48.681° W
+          </div>
         </div>
         <div className="flex flex-col items-center lg:pt-0 xl:pt-8">
           <Image
@@ -98,6 +102,13 @@ export default function Welcome() {
             height={152}
             className="h-48 w-48 rounded-full"
           />
+          <p className="flex items-center mt-2">
+            <span className="relative flex h-3 w-3 mr-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0089E5] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#0089E5]"></span>
+            </span>
+            <span className="text-gray-900 dark:text-gray-200 text-sm">Interested in new opportunities</span>
+          </p>
         </div>
       </div>
     </div>

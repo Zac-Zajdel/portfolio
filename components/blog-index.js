@@ -25,14 +25,28 @@ export default function BlogIndex() {
       <div className="relative mt-6 flex w-[80%]">
         <input
           type="text"
-          className="block w-full px-3 py-2 leading-tight rounded-lg appearance-none focus:outline-none bg-gray-300/25 dark:bg-zinc-800/50 focus:ring-1 focus:ring-gray-200 focus:bg-white hover:bg-opacity-5 transition-colors dark:focus:bg-dark dark:focus:ring-gray-100 dark:focus:ring-opacity-20"
+          className="
+            block
+            w-full
+            px-3
+            py-2
+            leading-tight
+            rounded-lg
+            bg-zinc-400/25
+            dark:bg-zinc-800/50
+            border-none
+            focus:ring-1
+            focus:ring-green-200
+            hover:bg-opacity-5
+            transition-colors
+            dark:focus:bg-[#121212]"
           aria-label="Search articles"
           placeholder="Search articles..."
           spellCheck="false"
           onChange={handleChange}
         />
         <svg
-          className="absolute right-3 top-1.5 h-6 w-6 bg-white dark:bg-dark dark:bg-opacity-50 text-gray-500 dark:text-gray-400 dark:border-gray-100 dark:border-opacity-20 border rounded p-1"
+          className="absolute right-3 top-1.5 h-6 w-6 bg-white dark:bg-transparent dark:bg-opacity-50 text-gray-500 dark:text-gray-400 dark:border-gray-100 dark:border-opacity-20 border rounded p-1"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -45,7 +59,7 @@ export default function BlogIndex() {
       {filteredBlogs.map((page, index) => {
         return (
           <Link href={page.route} key={index}>
-            <div className="hover:bg-zinc-100/60 dark:hover:bg-zinc-900/50 p-4 rounded-xl mt-4 cursor-pointer w-[80%]">
+            <div className="hover:bg-zinc-200/60 dark:hover:bg-zinc-900/60 p-4 rounded-xl mt-4 cursor-pointer w-[80%]">
               <h3>
                 <div style={{ color: 'inherit', textDecoration: 'none' }}>
                   {page.meta?.title || page.frontMatter?.title || page.name}
@@ -55,7 +69,7 @@ export default function BlogIndex() {
                 {page.frontMatter?.description}{' '}
               </p>
               {page.frontMatter?.date ? (
-                <span className="opacity-50 text-sm">
+                <span className="opacity-60 text-sm">
                   {page.frontMatter.date}
                 </span>
               ) : null}

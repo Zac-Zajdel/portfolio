@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useConfig, useTheme } from 'nextra-theme-docs'
@@ -25,8 +25,10 @@ const Logo = ({ height }) => (
 const Navbar = () => {
   const { theme, setTheme } = useTheme()
 
+  useEffect(() => setTheme('system'), [])
+
   return (
-    <div className="mx-auto mb-5 pt-5 pb-3 bg-[#121212] border-b border-gray-100/20">
+    <div className="mx-auto mb-5 p-4 bg-white dark:bg-[#121212] border-b border-gray-200 dark:border-gray-100/20">
       <div className="relative px-4 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-2xl lg:max-w-5xl">
           <div className="relative flex gap-4">
@@ -47,16 +49,16 @@ const Navbar = () => {
               <nav className="pointer-events-auto hidden md:block">
                 <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
                   <Link href="/blogs">
-                    <span className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">Blog</span>
+                    <span className="relative block px-3 py-2 transition hover:text-[#0089E5]">Blog</span>
                   </Link>
                   <Link href="/projects">
-                    <span className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">Projects</span>
+                    <span className="relative block px-3 py-2 transition hover:text-[#0089E5]">Projects</span>
                   </Link>
                   <Link href="/snippets/javascript/filter-array-on-input">
-                    <span className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">Snippets</span>
+                    <span className="relative block px-3 py-2 transition hover:text-[#0089E5]">Snippets</span>
                   </Link>
                   <Link href="/about">
-                    <span className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">About</span>
+                    <span className="relative block px-3 py-2 transition hover:text-[#0089E5]">About</span>
                   </Link>
                 </ul>
               </nav>
