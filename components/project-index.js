@@ -12,11 +12,9 @@ const projects = [
 export default function ProjectIndex() {
   return (
     <>
-      <div className="space-y-2 py-6 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          Projects
-        </h1>
-      </div>
+      <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-8 text-gray-900 dark:text-gray-100">
+        Projects
+      </h1>
 
       <div className="flex justify-center pt-2">
         <div className="overflow-hidden relative border rounded-xl hover:bg-gray-100/40 dark:hover:bg-zinc-800/10 md:gap-8 dark:hover:border-zinc-400/50 border-zinc-600">    
