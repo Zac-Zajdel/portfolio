@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 export default function BlogIndex() {
-  const blogs = getPagesUnderRoute('/blog')
+  const blogs = getPagesUnderRoute('/blogs')
   const [filteredBlogs, setFilteredBlogs] = useState(blogs)
 
   const handleChange = (event) => {
@@ -28,7 +28,7 @@ export default function BlogIndex() {
           className="block w-full px-3 py-2 leading-tight rounded-lg appearance-none focus:outline-none bg-gray-300/25 dark:bg-zinc-800/50 focus:ring-1 focus:ring-gray-200 focus:bg-white hover:bg-opacity-5 transition-colors dark:focus:bg-dark dark:focus:ring-gray-100 dark:focus:ring-opacity-20"
           aria-label="Search articles"
           placeholder="Search articles..."
-          spellcheck="false"
+          spellCheck="false"
           onChange={handleChange}
         />
         <svg
@@ -43,19 +43,15 @@ export default function BlogIndex() {
       </div>
 
       {filteredBlogs.map((page, index) => {
-        // Alias `<a>` to avoid it being replaced by MDX components.
-        const A = 'a'
         return (
           <Link href={page.route} key={index}>
             <div className="hover:bg-zinc-100/60 dark:hover:bg-zinc-900/50 p-4 rounded-xl mt-4 cursor-pointer w-[80%]">
-              <h3 className="-mb-4 -mt-0">
-                <Link href={page.route}>
-                  <A style={{ color: 'inherit', textDecoration: 'none' }}>
-                    {page.meta?.title || page.frontMatter?.title || page.name}
-                  </A>
-                </Link>
+              <h3>
+                <div style={{ color: 'inherit', textDecoration: 'none' }}>
+                  {page.meta?.title || page.frontMatter?.title || page.name}
+                </div>
               </h3>
-              <p className="opacity-80 mb-2">
+              <p className="opacity-80 my-4">
                 {page.frontMatter?.description}{' '}
               </p>
               {page.frontMatter?.date ? (

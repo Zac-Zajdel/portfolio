@@ -2,9 +2,9 @@
   "index": {
     "title": "Introduction",
     "type": "page",
-    "hidden": true
+    "display": "hidden"
   },
-  "blog": {
+  "blogs": {
     "title": "Blog",
     "type": "page",
     "theme": {
@@ -15,11 +15,12 @@
     "title": "Snippets",
     "type": "page"
   },
+  "projects": {
+    "title": "Projects",
+    "type": "page"
+  },
   "about": {
     "title": "About",
-    "type": "page",
-    "theme": {
-      "sidebar": false
-    }
+    "type": "page"
   }
 }

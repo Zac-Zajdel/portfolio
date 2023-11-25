@@ -2,22 +2,24 @@ import Image from 'next/image'
 import { IconContext } from 'react-icons'
 import { FaDiscord, FaLinkedin } from 'react-icons/fa'
 import { AiFillMail } from 'react-icons/ai'
+import { BsTwitterX } from "react-icons/bs";
 
-const Welcome = () => {
+export default function Welcome() {
   return (
     <div className="divide-y">
       <div className="items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
         <div className="prose max-w-none pt-8 pb-2 xl:pb-8 dark:prose-dark xl:col-span-2">
           <div className="flex flex-col pr-8">
-            <h1 className="font-bold text-3xl md:text-5xl tracking-tight -mb-5 text-gray-900 dark:text-gray-100">
+            <h1 className="font-bold text-3xl md:text-5xl tracking-tight text-gray-900 dark:text-gray-100">
               Zac Zajdel
             </h1>
-            <p className="text-gray-900 dark:text-gray-200 -mb-4">
+            <p className="text-gray-900 dark:text-gray-200 my-4">
               Full-Stack Software Engineer
             </p>
             <p className="text-gray-600 dark:text-gray-400">
-              Changing the world one keystroke at a time. Let&apos;s go learn
-              together and become the best version of ourselves!
+              I'm lucky — I get to build full stack web apps for a living.
+              There's nothing better than bringing ideas to life and picking up new skills along the way!
+              Feel free to take a look around and hit me up on my socials below 😊
             </p>
 
             <div className="mt-6 flex gap-6">
@@ -55,6 +57,22 @@ const Welcome = () => {
               </a>
               <a
                 className="group -m-1 p-1"
+                aria-label="Follow me on X"
+                target="_blank"
+                rel="noreferrer"
+                href="https://twitter.com/zac_zajdel"
+              >
+                <IconContext.Provider
+                  value={{
+                    className:
+                      'fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300',
+                  }}
+                >
+                  <BsTwitterX size={24} />
+                </IconContext.Provider>
+              </a>
+              <a
+                className="group -m-1 p-1"
                 aria-label="Follow me on Discord"
                 target="_blank"
                 rel="noreferrer"
@@ -85,5 +103,3 @@ const Welcome = () => {
     </div>
   )
 }
-
-export default Welcome

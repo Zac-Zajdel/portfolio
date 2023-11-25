@@ -13,7 +13,6 @@ import {
   SiPrisma,
   SiLaravel,
   SiVercel,
-  SiVapor,
   SiAmazonaws,
 } from 'react-icons/si'
 import { FaVuejs } from 'react-icons/fa'
@@ -74,12 +73,6 @@ const knowledge: Array<TechProps> = [
     icon: SiPhp,
     fill: '#6383BB',
     url: 'https://www.php.net/',
-  },
-  {
-    name: 'Vapor',
-    icon: SiVapor,
-    fill: '#3EB9FF',
-    url: 'https://vapor.laravel.com/',
   },
   {
     name: 'Tailwind CSS',

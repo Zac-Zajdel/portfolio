@@ -1,8 +1,0 @@
-{
-  "cleaning-up-imports": "Clean Up Your Project Imports",
-  "authentication-with-nextauth": "Easy authentication with NextAuth.js",
-  "prisma-and-nextjs": "Using Prisma with Next.js & TypeScript",
-  "terminal-aliases": "Create Custom Terminal Aliases",
-  "composition-api": "Composition API Syntax",
-  "add-dependabot": "Using Dependabot"
-}
