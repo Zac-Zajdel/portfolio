@@ -17,7 +17,7 @@ export default function Welcome() {
             <p className="text-gray-900 dark:text-gray-200 my-4">
               Full-Stack Software Engineer
             </p>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-800 dark:text-gray-400">
               I'm lucky — I get to build full stack web apps for a living.
               There's nothing better than bringing ideas to life and picking up new skills along the way!
               Feel free to take a look around and hit me up on my socials below 😊

@@ -46,7 +46,7 @@ export default function Navbar() {
                       <Link href="/projects">
                         <span className={`relative block px-3 py-2 transition ${router.pathname === '/projects' ? 'text-[#0089E5]' : null } hover:text-[#0089E5]`}>Projects</span>
                       </Link>
-                      <Link href="/snippets/Javascript/filter-array-on-input">
+                      <Link href="/snippets/javascript/human-readable-format">
                         <span className={`relative block px-3 py-2 transition ${router.pathname.includes('/snippets') ? 'text-[#0089E5]' : null } hover:text-[#0089E5]`}>Snippets</span>
                       </Link>
                       <Link href="/about">
@@ -64,7 +64,7 @@ export default function Navbar() {
                   <Link href="/projects">
                     <span className={`relative block px-3 py-2 transition ${router.pathname === '/projects' ? 'text-[#0089E5]' : null } hover:text-[#0089E5]`}>Projects</span>
                   </Link>
-                  <Link href="/snippets/Javascript/filter-array-on-input">
+                  <Link href="/snippets/javascript/human-readable-format">
                     <span className={`relative block px-3 py-2 transition ${router.pathname.includes('/snippets') ? 'text-[#0089E5]' : null } hover:text-[#0089E5]`}>Snippets</span>
                   </Link>
                   <Link href="/about">
