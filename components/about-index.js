@@ -5,8 +5,8 @@ import TechStack from './about/techStack'
 export default function AboutIndex() {
   return (
     <>
-      <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+      <div className="space-y-2 pt-6 pb-6 md:space-y-5">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight text-gray-900 dark:text-gray-100">
           About
         </h1>
       </div>
@@ -25,9 +25,6 @@ export default function AboutIndex() {
           <div className="text-gray-500 dark:text-gray-400">
             Full-Stack Software Engineer
           </div>
-          <div className="text-gray-500 dark:text-gray-400">
-            Indiana University of Pennsylvania
-          </div>
           <div>
             <section>
               <SpotifyCard />
@@ -36,34 +33,27 @@ export default function AboutIndex() {
         </div>
 
         <div className="prose max-w-none py-8 dark:prose-dark xl:col-span-2">
-          <div>Hey Fellow Tech Enthusiast,</div>
+          <div>Hey 👋</div>
           <br />
-          My name is Zac and I am based in Dallas, Texas focusing my career on
-          web development technologies. You can usually find me working on some
-          side project, watching movies, listening to music just about 24/7, and
-          hanging with friends.
+          I'm Zac, based in Dallas, Texas, honing my craft in web development.
+          Between tackling side projects,you'll catch me enjoying movies, constantly tuned into music, and hanging out with friends.
           <br />
           <br />
-          With technology, I am a big fan of the React & Vue ecosystems as well
-          as Next.js, Nuxt.js, Laravel, Node, PHP, AWS, and a host of other
-          technologies which have helped revolutionize how developers brings
-          their ideas to life! One thing this industry promises is that we will
-          never get bored or complacent which is so refreshing. The generosity
-          and commitment of developers worldwide keeps me striving to be my best
-          self.
+          In the tech realm, I'm a big fan for the React, Vue, Laravel, and a bunch of other game-changers that redefine how developers bring their ideas to life.
+          This industry never lets us get bored or complacent, and that's what makes it so invigorating.
+          The commitment and generosity of developers worldwide inspire me to strive for excellence.
           <br />
-          <br />I created this blog in hopes that what I learn and discover can
-          be transferred to others. I wanna give to the community rather than
-          only take so this is my attempt and if you made it this far then go
-          look around and let&apos;s connect :)
+          <br />
+          I started this blog with the hope of sharing my discoveries with others.
+          It's my way of giving back to the community that has given me so much.
+          If you've made it this far, let's connect :)
         </div>
       </div>
 
       <TechStack />
 
-      {/* Experience Section */}
       <div className="space-y-2 pt-8 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight text-gray-900 dark:text-gray-100">
           Experience
         </h1>
       </div>
@@ -91,15 +81,13 @@ export default function AboutIndex() {
               <div className="flex flex-row">
                 <div className="mr-2 text-lg"> ‣</div>
                 <div>
-                  A significant contributor of rebuilding Rimsys from the ground
-                  up using modern technologies and instituting best practices.
+                  Core contributor to rebuilding Rimsys using modern technologies and establishing best practices.
                 </div>
               </div>
               <div className="flex flex-row ">
                 <div className="mr-2 text-lg"> ‣</div>
                 <div>
-                  A team lead of several devs organizing sprint objectives, pull
-                  request reviews, deployments, and meetings.
+                  A team lead for several developers helping organizing sprint objectives, PR reviews, releases, and meetings.
                 </div>
               </div>
               <div className="flex flex-row items-top">

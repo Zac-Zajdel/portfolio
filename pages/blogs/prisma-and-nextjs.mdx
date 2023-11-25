@@ -21,24 +21,24 @@ Before we get started, see if your choice of database is supported:
 
 - Open your terminal in your projects root directory and download the following packages:
 
-```bash
+```bash copy
 npm install prisma
 ```
 
-```bash
+```bash copy
 npm install @prisma/client
 ```
 
 - Use the Prisma CLI to create the necessary structure to get up and running:
 
-```bash
+```bash copy
 npx prisma init
 ```
 
 - Create a `.env` file in your root directory to connect to your database. For this example,
   we will be using mysql and connecting to our local database:
 
-```js
+```js filename=".env" copy
 DATABASE_URL = 'mysql://MYSQL_USERNAME:MYSQL_PASSWORD@localhost:3306/DATABASE_NAME'
 ```
 
@@ -46,7 +46,7 @@ DATABASE_URL = 'mysql://MYSQL_USERNAME:MYSQL_PASSWORD@localhost:3306/DATABASE_NA
   This is where you'll setup the data source and create your database models.
   For the purposes of this tutorial, copy the following into your file:
 
-```js
+```js filename="schema.prisma" copy
 // A generator
 generator client {
   provider = "prisma-client-js"
@@ -70,7 +70,7 @@ model User {
 
 - Inside your prisma folder, create a `seed.ts` file and add the following:
 
-```js
+```js filename="seed.ts" copy
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
@@ -105,7 +105,7 @@ main()
 
 - Finally let's put your hard work to the test and generate your database Schema, create a migration, and run the seeder:
 
-```bash
+```bash copy
 yarn prisma migrate dev --name init
 ```
 
@@ -116,7 +116,7 @@ yarn prisma migrate dev --name init
   transaction on our DB. In order to mitigate these issues, we can build a single instance for re-use throughout our API routes.
 - Create a `lib` directory in your root directory and generate a file names `prisma.ts` with the following content:
 
-```js
+```js filename="lib/prisma.ts" copy
 import { PrismaClient } from '@prisma/client'
 
 declare global {
@@ -136,7 +136,7 @@ if (process.env.NODE_ENV !== 'production') global.prisma = prisma
 
 1. Inside your `/pages/api` directory create a `user.ts` file and add the following:
 
-```js
+```js filename="pages/api/user.ts" copy
 import { prisma } from '../../lib/prisma'
 import { NextApiRequest, NextApiResponse } from 'next'
 
@@ -149,7 +149,7 @@ export default async function handle(_: NextApiRequest, res: NextApiResponse) {
 
 2. In this component example, let's use [getServerSideProps](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) to retrieve our data
 
-```jsx
+```jsx filename="pages/api/user.ts" copy
 import { InferGetServerSidePropsType } from 'next'
 
 interface User {

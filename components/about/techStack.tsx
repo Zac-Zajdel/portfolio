@@ -13,7 +13,6 @@ import {
   SiPrisma,
   SiLaravel,
   SiVercel,
-  SiVapor,
   SiAmazonaws,
 } from 'react-icons/si'
 import { FaVuejs } from 'react-icons/fa'
@@ -76,12 +75,6 @@ const knowledge: Array<TechProps> = [
     url: 'https://www.php.net/',
   },
   {
-    name: 'Vapor',
-    icon: SiVapor,
-    fill: '#3EB9FF',
-    url: 'https://vapor.laravel.com/',
-  },
-  {
     name: 'Tailwind CSS',
     icon: SiTailwindcss,
     fill: '#15C2B8',
@@ -129,7 +122,7 @@ export default function TechStack() {
   return (
     <>
       <div className="space-y-2 md:space-y-5 pt-8">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight text-gray-900 dark:text-gray-100">
           Tech Stack
         </h1>
       </div>
@@ -137,13 +130,14 @@ export default function TechStack() {
       <div className="mt-8 flex flex-wrap justify-center">
         {knowledge.map((item: TechProps) => {
           return (
-            <TechStackCard
-              key={item.name}
-              name={item.name}
-              icon={item.icon}
-              fill={item.fill}
-              url={item.url}
-            />
+            <span key={item.name}>
+              <TechStackCard
+                name={item.name}
+                icon={item.icon}
+                fill={item.fill}
+                url={item.url}
+              />
+            </span>
           )
         })}
       </div>
