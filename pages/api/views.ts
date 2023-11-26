@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method === 'POST') {
     count++
-    redis.set(slug, count)
+    await redis.set(slug, count)
   }
 
   res.status(200).json({count: count})
