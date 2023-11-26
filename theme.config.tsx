@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import { useConfig } from 'nextra-theme-docs'
 import Navbar from './components/navbar'
 import Logo from './components/logo'
-// import ViewCounter from './components/viewCounter'
 
 export default {
   logo: () => {
@@ -39,9 +38,6 @@ export default {
   footer: {
     component: null,
   },
-  // toc: {
-  //   extraContent: <ViewCounter />
-  // },
   head: () => {
     const { frontMatter } = useConfig()
     return (
