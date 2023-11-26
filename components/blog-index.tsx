@@ -1,6 +1,12 @@
 import { getPagesUnderRoute } from 'nextra/context'
 import { useState } from 'react'
 import Link from 'next/link'
+import { Folder, FrontMatter, MdxFile, Meta } from 'nextra';
+
+type Page = (MdxFile | Folder<Page>) & {
+  meta?: Exclude<Meta, string>;
+  frontMatter: FrontMatter;
+};
 
 export default function BlogIndex() {
   const blogs = getPagesUnderRoute('/blogs')
@@ -9,10 +15,9 @@ export default function BlogIndex() {
   const handleChange = (event) => {
     const input = event.target.value.toLowerCase()
     setFilteredBlogs(
-      blogs.filter(
-        (blog) =>
-          blog.meta.title.toLowerCase().match(input) ||
-          blog.frontMatter.description.toLowerCase().match(input)
+      blogs.filter((blog: Page) =>
+        blog.meta.title.toLowerCase().match(input) ||
+        blog.frontMatter.description.toLowerCase().match(input)
       )
     )
   }
@@ -56,27 +61,32 @@ export default function BlogIndex() {
         </svg>
       </div>
 
-      {filteredBlogs.map((page, index) => {
-        return (
-          <Link href={page.route} key={index}>
-            <div className="hover:bg-zinc-200/60 dark:hover:bg-zinc-900/60 p-4 rounded-xl mt-4 cursor-pointer w-[80%]">
-              <h3>
-                <div style={{ color: 'inherit', textDecoration: 'none' }}>
-                  {page.meta?.title || page.frontMatter?.title || page.name}
-                </div>
-              </h3>
-              <p className="opacity-80 my-4">
-                {page.frontMatter?.description}{' '}
-              </p>
-              {page.frontMatter?.date ? (
-                <span className="opacity-60 text-sm">
-                  {page.frontMatter.date}
-                </span>
-              ) : null}
-            </div>
-          </Link>
+      {filteredBlogs
+        .sort(
+          (a, b) =>
+            b.frontMatter.order - a.frontMatter.order,
         )
-      })}
+        .map((page, index) => {
+          return (
+            <Link href={page.route} key={index}>
+              <div className="hover:bg-zinc-200/60 dark:hover:bg-zinc-900/60 p-4 rounded-xl mt-4 cursor-pointer w-[80%]">
+                <h3>
+                  <div style={{ color: 'inherit', textDecoration: 'none' }}>
+                    {page.meta?.title || page.frontMatter?.title || page.name}
+                  </div>
+                </h3>
+                <p className="opacity-80 my-4">
+                  {page.frontMatter?.description}{' '}
+                </p>
+                {page.frontMatter?.date ? (
+                  <span className="opacity-60 text-sm">
+                    {page.frontMatter.date}
+                  </span>
+                ) : null}
+              </div>
+            </Link>
+          )
+        })}
     </>
   )
 }
