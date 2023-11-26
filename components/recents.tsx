@@ -22,7 +22,7 @@ export default function RecentPosts() {
         Recent Posts
       </h1>
       <div className="relative mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {threeRecentBlogs.map((page, index) => {
+        {threeRecentBlogs.map((page: Page, index) => {
           return (
             <Tilt
               tiltMaxAngleX={2.5}
