@@ -8,7 +8,7 @@ order: 6
 ## Creating Files with an Interactive Custom CLI Tool
 
 Command Line Interface (CLI) tools are essential in a developer's toolkit, facilitating various tasks.
-This guide aims to illuminate the process of developing a CLI tool that generates files in [Front Matter](https://mdxjs.com/guides/frontmatter/) format,
+This guide aims to walkthrough the process of developing a CLI tool that generates files in [Front Matter](https://mdxjs.com/guides/frontmatter/) format,
 similar to the one used in this blog post.
 
 ## Getting Started
@@ -19,7 +19,6 @@ Ensure the following dependencies are installed:
 - [@inquirer/prompts](https://github.com/SBoudrias/Inquirer.js)
 - [dedent](https://github.com/dmnd/dedent)
 
-Ensure the following dependencies are installed:
 ```bash
   yarn add -D @inquirer/prompts dedent
 ```
@@ -60,14 +59,14 @@ Key components of the above snippet:
 - Solicit the user for a title and description.
 - The `message` property indicates the prompt for the user.
 - The `validate` property ensures input compliance (e.g., required, length constraints).
-- Outputs the captured data using `console.log()` back to the user.
+- Outputs the captured data using `console.log()`.
 
 ### Formatting and File Generation
 
 - Utilize a custom `formatDate` function to format the date. Feel free to modify the date format as needed.
 - The `dedent` package is used for formatting the responses into a structured multi-line format.
 - Use the `fs` module to create a file with the generated content in the desired directory.
-- NOTE: Ensure the `filePath` aligns with your project's directory structure.
+- **NOTE**: Ensure the `filePath` aligns with your project's directory structure.
 
 
 ```javascript filename="article-creation.mjs" copy
@@ -132,19 +131,17 @@ There are many different ways to display a date so do as you please :)
 ## Executing Your Script
 
 Include your scripts reference in your `package.json`:
-```javascript filename="package.json" copy
+```json filename="package.json" copy
   scripts: {
     "make:article": "node ./article-creation.mjs run"
   }
 ```
 
-Congrats on making it this far!
-
-You now have a functional CLI tool that captures user input, formats it, and outputs a structured file
+You now have a functional CLI tool that captures user input, formats it, and outputs a structured file!
 
 ## Full Code Implementation
 
-- Note: Below is a more in-depth implementation. Adjust it according to your project's requirements!
+- **Note**: Below is a more in-depth implementation. Adjust it according to your project's requirements.
 
 ```javascript filename="article-creation.mjs" copy
   import * as fs from 'fs';
@@ -250,4 +247,10 @@ You now have a functional CLI tool that captures user input, formats it, and out
   }
 
   run();
+```
+
+Run the following command and see your code come to life!
+
+```bash copy
+pnpm make:article
 ```

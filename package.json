@@ -8,7 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "article": "node ./scripts/article-creation.mjs run"
+    "make:article": "node ./scripts/article-creation.mjs run"
   },
   "dependencies": {
     "@upstash/redis": "^1.25.1",
