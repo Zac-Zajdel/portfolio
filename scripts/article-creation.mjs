@@ -2,7 +2,8 @@ import * as fs from 'fs';
 import dedent from "dedent";
 import { input } from '@inquirer/prompts';
 
-const formatDate = (date) => {
+const formatDate = () => {
+  const date = new Date();
   const options = { day: 'numeric', month: 'short', year: 'numeric' };
   const formatter = new Intl.DateTimeFormat('en-US', options);
 
@@ -43,7 +44,7 @@ function countFiles(directoryPath) {
 }
 
 const generateContent = async (answers) => {
-  const formattedDate = formatDate(new Date());
+  const formattedDate = formatDate();
   const total = await countFiles('pages/blogs');
 
   return dedent`

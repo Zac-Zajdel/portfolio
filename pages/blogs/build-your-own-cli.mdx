@@ -1,10 +1,253 @@
 ---
-title: Build Your Own CLI
-description: A simple CLI to generate formatted files
-date: Dec 18th, 2023
+title: Creating Files with an Interactive Custom CLI Tool
+description: Guide to building a CLI tool for structured file generation
+date: Jan 8th, 2024
 order: 6
 ---
 
-## Introduction
+## Creating Files with an Interactive Custom CLI Tool
 
-### Sub Header
+Command Line Interface (CLI) tools are essential in a developer's toolkit, facilitating various tasks.
+This guide aims to illuminate the process of developing a CLI tool that generates files in [Front Matter](https://mdxjs.com/guides/frontmatter/) format,
+similar to the one used in this blog post.
+
+## Getting Started
+
+### Prerequisites: Required Dev Dependencies
+
+Ensure the following dependencies are installed:
+- [@inquirer/prompts](https://github.com/SBoudrias/Inquirer.js)
+- [dedent](https://github.com/dmnd/dedent)
+
+Ensure the following dependencies are installed:
+```bash
+  yarn add -D @inquirer/prompts dedent
+```
+
+### Utilizing Inquirer
+Begin by creating a run() function.
+This function utilizes the Inquirer package to solicit the user's input for a title and description.
+
+```javascript
+const run = async () => {
+  const title = await input({
+    message: 'Enter Title:',
+    validate: function(value) {
+      if (!value) {
+        return 'Title is required.';
+      }
+      return true;
+    }
+  });
+  console.log(title);
+
+  const description = await input({
+    message: 'Enter description',
+    validate: function(value) {
+      if (!value) {
+        return 'Description is required.'
+      }
+      return true;
+    }
+  });
+  console.log(description);
+}
+
+run();
+```
+
+Key components of the above snippet:
+- Solicit the user for a title and description.
+- The `message` property indicates the prompt for the user.
+- The `validate` property ensures input compliance (e.g., required, length constraints).
+- Outputs the captured data using `console.log()` back to the user.
+
+### Formatting and File Generation
+
+- Utilize a custom `formatDate` function to format the date. Feel free to modify the date format as needed.
+- The `dedent` package is used for formatting the responses into a structured multi-line format.
+- Use the `fs` module to create a file with the generated content in the desired directory.
+- NOTE: Ensure the `filePath` aligns with your project's directory structure.
+
+
+```javascript filename="article-creation.mjs" copy
+  const formattedDate = formatDate();
+  const fileContent = dedent`
+    ---
+    title: ${title}
+    description: ${description}
+    date: ${formattedDate}
+    ---
+
+    ## Introduction
+
+    ### Sub Header
+  `;
+  const fileName = title.toLowerCase().split(' ').join('-');
+  const filePath = `pages/blogs/${fileName}.mdx`;
+
+  // Create file
+  fs.writeFile(filePath, fileContent, (err) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log(`Article generated at ${filePath}`);
+    }
+  })
+```
+
+- Detailed implementation of the `formatDate()` function.
+There are many different ways to display a date so do as you please :)
+
+```javascript filename="article-creation.mjs" copy
+  const formatDate = () => {
+    const date = new Date();
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+    const formatter = new Intl.DateTimeFormat('en-US', options);
+
+    const parts = formatter.formatToParts(date).reduce((acc, part) => {
+      acc[part.type] = part.value;
+      return acc;
+    }, {});
+    const { day, month, year } = parts;
+
+    // Function to add 'st', 'nd', 'rd', or 'th' to the day
+    function getDaySuffix(day) {
+      if (day >= 11 && day <= 13) {
+        return 'th';
+      }
+      switch (day % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    }
+    const daySuffix = getDaySuffix(parseInt(day, 10));
+
+    return `${month} ${day}${daySuffix}, ${year}`;
+  }
+```
+
+## Executing Your Script
+
+Include your scripts reference in your `package.json`:
+```javascript filename="package.json" copy
+  scripts: {
+    "make:article": "node ./article-creation.mjs run"
+  }
+```
+
+Congrats on making it this far!
+
+You now have a functional CLI tool that captures user input, formats it, and outputs a structured file
+
+## Full Code Implementation
+
+- Note: Below is a more in-depth implementation. Adjust it according to your project's requirements!
+
+```javascript filename="article-creation.mjs" copy
+  import * as fs from 'fs';
+  import dedent from "dedent";
+  import { input } from '@inquirer/prompts';
+
+  const formatDate = (date) => {
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+    const formatter = new Intl.DateTimeFormat('en-US', options);
+
+    const parts = formatter.formatToParts(date).reduce((acc, part) => {
+      acc[part.type] = part.value;
+      return acc;
+    }, {});
+    const { day, month, year } = parts;
+
+    // Function to add 'st', 'nd', 'rd', or 'th' to the day
+    function getDaySuffix(day) {
+      if (day >= 11 && day <= 13) {
+        return 'th';
+      }
+      switch (day % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    }
+    const daySuffix = getDaySuffix(parseInt(day, 10));
+
+    return `${month} ${day}${daySuffix}, ${year}`;
+  }
+
+  function countFiles(directoryPath) {
+    return new Promise((resolve, reject) => {
+      fs.readdir(directoryPath, (err, files) => {
+        if (err) {
+          reject(`Error reading directory: ${err}`);
+        } else {
+          const fileCount = files.filter(file => fs.statSync(`${directoryPath}/${file}`).isFile()).length;
+          resolve(fileCount);
+        }
+      });
+    });
+  }
+
+  const generateContent = async (answers) => {
+    const formattedDate = formatDate(new Date());
+    const total = await countFiles('pages/blogs');
+
+    return dedent`
+      ---
+      title: ${answers.title}
+      description: ${answers.description}
+      date: ${formattedDate}
+      order: ${total + 1}
+      ---
+
+      ## Introduction
+
+      ### Sub Header
+    `;
+  };
+
+  const run = async () => {
+    const title = await input({
+      message: 'Enter Title:',
+      validate: function(value) {
+        if (!value) {
+          return 'Title is required.';
+        }
+        return true;
+      }
+    });
+    console.log(title);
+
+    const description = await input({
+      message: 'Enter description',
+      validate: function(value) {
+        if (!value) {
+          return 'Description is required.'
+        }
+        return true;
+      }
+    });
+    console.log(description);
+
+    const answers = {
+      title,
+      description,
+    }
+
+    const fileContent = await generateContent(answers);
+    const fileName = answers.title.toLowerCase().split(' ').join('-');
+    const filePath = `pages/blogs/${fileName}.mdx`;
+    fs.writeFile(filePath, fileContent, (err) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log(`Article generated at ${filePath}`);
+      }
+    })
+  }
+
+  run();
+```
