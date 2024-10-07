@@ -1,6 +1,6 @@
 import ProjectCard from "./project-card";
 
-type Project = {
+export type Project = {
   title: string
   url: string 
   github: string
@@ -10,10 +10,17 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: 'Bookmark Oasis',
+    url: 'https://www.bookmarkoasis.com/',
+    github: 'https://github.com/Zac-Zajdel/bookmark-oasis',
+    description: 'Unleash the Power of Efficient Browser Bookmarking.',
+    slug: 'oasis'
+  },
+  {
     title: 'Jottings',
     url: 'https://jottings.dev/',
     github: 'https://github.com/Zac-Zajdel/jottings',
-    description: 'Create advanced documents and share them with your team!',
+    description: 'Create advanced documents and share with your team.',
     slug: 'jottings'
   },
 ]
@@ -26,10 +33,13 @@ export default function ProjectIndex() {
       </h1>
 
       <div className="flex justify-center pt-2">
-        <div className="overflow-hidden relative border rounded-xl hover:bg-gray-100/40 dark:hover:bg-zinc-800/10 md:gap-8 dark:hover:border-zinc-400/50 border-zinc-600">    
+        <div className="overflow-hidden relative">    
           {projects.map((project, index) => {
             return (
-              <div key={index}>
+              <div
+                key={index}
+                className="border rounded-xl hover:bg-gray-100/40 dark:hover:bg-zinc-800/10 md:gap-8 dark:hover:border-zinc-400/50 border-zinc-600 mb-5"
+              >
                 <ProjectCard project={project} />
               </div>
             )

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import CountUp from 'react-countup';
 import { FaGithub } from 'react-icons/fa';
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { Project } from './project-index';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project }: { project: Project }) {
   const [count, setCount] = useState(0)
   const [isLoading, setLoading] = useState(true)
 
@@ -31,15 +33,9 @@ export default function ProjectCard({ project }) {
   return (
     <article className="relative w-full h-full p-4 md:p-6">
       <div className="flex justify-between marker:items-center">
-        <a
-          href={project.url}
-          target="_blank"
-          onClick={() => incr()}
-        >
-          <div className="flex text-3xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-white sm:text-4xl transition duration-300 hover:scale-110">
-            {project.title}
-          </div>
-        </a>
+        <div className="flex text-3xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-white sm:text-4xl">
+          {project.title}
+        </div>
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-1 text-xs text-gray-900 dark:text-gray-100">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -60,7 +56,7 @@ export default function ProjectCard({ project }) {
                 </svg>
                 <span className="sr-only">Loading...</span>
               </div>
-              ) : <CountUp end={count} duration={2.5} />
+              ) : <CountUp end={count} duration={2} />
             }
           </span>
         </div>
@@ -68,35 +64,20 @@ export default function ProjectCard({ project }) {
       <p className="mt-4 leading-8 duration-150 text-gray-900 dark:text-zinc-400 group-hover:text-zinc-300">
         {project.description}
       </p>
-      <div className="flex justify-between mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-        <div>
-          <a
-            href="https://nextjs.org/"
-            target="_blank"
-          >
-            <span className="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-1 rounded dark:bg-gray-700 dark:text-gray-300 mr-2">Next.js</span>
-          </a>
-          <a
-            href="https://planetscale.com/"
-            target="_blank"
-          >
-            <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-1 rounded dark:bg-purple-900 dark:text-purple-300 mr-2">PlanetScale</span>
-          </a>
-          <a
-            href="https://tailwindcss.com/"
-            target="_blank"
-          >
-            <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded dark:bg-blue-900 dark:text-blue-300 mr-2">TailwindCSS</span>
-          </a>
-        </div>
-        <div>
-          <a
-            href={project.github}
-            target="_blank"
-          >
-            <FaGithub className="h-6 w-6 mt-1 transition duration-300 hover:scale-125" />
-          </a>
-        </div>
+      <div className="flex justify-between items-center mt-5 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+        <a
+          href={project.url}
+          target="_blank"
+          onClick={() => incr()}
+        >
+          <FaExternalLinkAlt className="h-4 w-4 mt-1 transition text-gray-900 dark:text-gray-100 duration-300 hover:scale-125" />
+        </a>
+        <a
+          href={project.github}
+          target="_blank"
+        >
+          <FaGithub className="h-5 w-5 mt-1 transition text-gray-900 dark:text-gray-100 duration-300 hover:scale-125" />
+        </a>
       </div>
     </article>
   )
