@@ -1,10 +1,26 @@
-# [Learn With Zac](https://zaczajdel.com/)
+# portfolio
 
-My website uses [pnpm](https://pnpm.io), [Nextra](https://nextra.vercel.app) and deploys via [Vercel](https://vercel.com).
+This is a Next.js application generated with
+[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+
+Run development server:
 
 ```bash
-pnpm i
+npm run dev
+# or
 pnpm dev
+# or
+yarn dev
 ```
 
-Go to `localhost:3000` to preview
+Open http://localhost:3000 with your browser to see the result.
+
+## Learn More
+
+To learn more about Next.js and Fumadocs, take a look at the following
+resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
+  features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
