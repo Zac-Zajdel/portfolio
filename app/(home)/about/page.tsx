@@ -1,19 +1,14 @@
-import Link from 'next/link';
+import ExperienceSection from '@/components/about/experience-section';
+import IntroSection from '@/components/about/intro-section';
+import TechStackSection from '@/components/about/tech-stack-section';
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-1 flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">About Page</h1>
-      <p className="text-fd-muted-foreground">
-        You can open{' '}
-        <Link
-          href="/docs"
-          className="font-semibold text-fd-foreground underline"
-        >
-          /docs
-        </Link>{' '}
-        and see the documentation.
-      </p>
+    <main className="container mx-auto space-y-20 md:px-16 xl:px-48">
+      <IntroSection />
+      <TechStackSection />
+      <ExperienceSection />
+      <div className="mt-10" />
     </main>
   );
 }
