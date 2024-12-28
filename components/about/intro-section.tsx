@@ -1,5 +1,7 @@
 import SpotifyCard from '@/components/cards/spotify-card';
+import SpotifyCardSkeleton from '@/components/cards/spotify-card-skeleton';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 export default function IntroSection() {
   return (
@@ -19,7 +21,9 @@ export default function IntroSection() {
             Full-Stack Software Engineer
           </p>
 
-          <SpotifyCard />
+          <Suspense fallback={<SpotifyCardSkeleton />}>
+            <SpotifyCard />
+          </Suspense>
         </div>
         <div className="col-span-3 place-items-center pt-2">
           Hey 👋
