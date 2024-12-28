@@ -1,17 +1,27 @@
 import Spotify from '@/components/icons/spotify';
 import Image from 'next/image';
 
-export default function SpotifyCard() {
-  // todo - create route handler....
-  const data = {
-    isPlaying: true,
-    artist: 'The Eagles',
-    title: 'One of These Nights - 2013 Remaster',
-    album: 'One of These Nights (2013 Remaster)',
-    albumImageUrl:
-      'https://i.scdn.co/image/ab67616d0000b2735d0a8e54aba5181c79593b94',
-    songUrl: 'https://open.spotify.com/track/608xszaAxVh4m7NcKJiAbF',
-  };
+interface SpotifyContent {
+  isPlaying: boolean;
+  title: string;
+  album: string;
+  artist: string;
+  albumImageUrl: string;
+  songUrl: string;
+}
+
+async function fetchSpotifyData() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
+  try {
+    return await (await fetch(`${baseUrl}/api/spotify`)).json();
+  } catch (error) {
+    console.error('Error fetching Spotify data:', error);
+  }
+}
+
+export default async function SpotifyCard() {
+  const spotifyData: SpotifyContent = await fetchSpotifyData();
 
   return (
     <section>
@@ -19,17 +29,17 @@ export default function SpotifyCard() {
         target="_blank"
         rel="noopener noreferrer"
         href={
-          data?.isPlaying
-            ? data.songUrl
+          spotifyData?.isPlaying
+            ? spotifyData.songUrl
             : 'https://open.spotify.com/user/zaczajdel213'
         }
         className="relative flex items-center space-x-4 rounded-md py-5 no-underline transition-shadow hover:shadow-md"
       >
         <div className="w-16">
-          {data?.isPlaying ? (
+          {spotifyData?.isPlaying ? (
             <Image
-              src={data?.albumImageUrl}
-              alt={data?.album}
+              src={spotifyData?.albumImageUrl}
+              alt={spotifyData?.album}
               width={80}
               height={80}
               className="w-16 shadow-sm"
@@ -43,12 +53,14 @@ export default function SpotifyCard() {
 
         <div className="flex-1">
           <p className="overflow-hidden text-ellipsis text-sm">
-            {data?.isPlaying ? data.title : 'Not Listening'}
+            {spotifyData?.isPlaying ? spotifyData.title : 'Not Listening'}
           </p>
           <div className="font-dark flex items-center justify-between pt-2 text-xs">
-            <span>{data?.isPlaying ? data.artist : 'Spotify'}</span>
             <span>
-              {data?.isPlaying ? (
+              {spotifyData?.isPlaying ? spotifyData.artist : 'Spotify'}
+            </span>
+            <span>
+              {spotifyData?.isPlaying ? (
                 <span className="size-6 fill-green-500">
                   <Spotify />
                 </span>

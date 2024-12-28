@@ -1,7 +1,6 @@
 import TechStackCard from '@/components/cards/tech-stack-card';
 import { IconType } from 'react-icons';
 import { FaVuejs } from 'react-icons/fa';
-import { IoPlanetSharp } from 'react-icons/io5';
 import {
   SiLaravel,
   SiMysql,
@@ -17,6 +16,7 @@ import {
   SiTypescript,
   SiVercel,
 } from 'react-icons/si';
+import { TbBrandPlanetscale } from 'react-icons/tb';
 
 interface TechProps {
   name: string;
@@ -94,8 +94,8 @@ const knowledge: Array<TechProps> = [
   },
   {
     name: 'PlanetScale',
-    icon: IoPlanetSharp,
-    fill: '#5D48AF',
+    icon: TbBrandPlanetscale,
+    fill: '#E1E1E1',
     url: 'https://planetscale.com/',
   },
   {
