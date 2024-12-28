@@ -8,7 +8,7 @@ export default function AboutPage() {
         You can open{' '}
         <Link
           href="/docs"
-          className="text-fd-foreground font-semibold underline"
+          className="font-semibold text-fd-foreground underline"
         >
           /docs
         </Link>{' '}
