@@ -23,11 +23,7 @@ export async function GET() {
   try {
     const response = await getNowPlaying();
 
-    if (
-      response.status === 204 ||
-      response.status > 400 ||
-      response.data.currently_playing_type !== 'track'
-    ) {
+    if (!response.data || response.data.currently_playing_type !== 'track') {
       return NextResponse.json({ isPlaying: false }, { status: 200 });
     }
 
@@ -52,7 +48,7 @@ export async function GET() {
 
 const getNowPlaying = async (): Promise<{
   status: number;
-  data: SpotifyData;
+  data: SpotifyData | null;
 }> => {
   const accessToken = await getAccessToken();
 
@@ -65,8 +61,17 @@ const getNowPlaying = async (): Promise<{
     },
   );
 
-  const data: SpotifyData = await response.json();
-  return { status: response.status, data };
+  if (response.status === 204 || response.status > 400) {
+    return { status: response.status, data: null };
+  }
+
+  try {
+    const data: SpotifyData = await response.json();
+    return { status: response.status, data };
+  } catch (error) {
+    console.error('Error parsing Spotify currently-playing response:', error);
+    return { status: response.status, data: null };
+  }
 };
 
 const getAccessToken = async (): Promise<string> => {
