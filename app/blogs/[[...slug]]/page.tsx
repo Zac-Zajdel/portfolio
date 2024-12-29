@@ -1,4 +1,5 @@
 import { source } from '@/lib/source';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import {
   DocsBody,
@@ -20,12 +21,23 @@ export default async function Page(props: {
   return (
     <DocsPage
       toc={page.data.toc}
+      lastUpdate={
+        page.data.lastModified ? new Date(page.data.lastModified) : undefined
+      }
       full={page.data.full}
+      editOnGithub={{
+        owner: 'Zac-Zajdel',
+        repo: 'portfolio',
+        sha: 'main',
+        path: `content/blogs/${page.file.path}`,
+      }}
     >
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsTitle className="-mb-2">{page.data.title}</DocsTitle>
+      <DocsDescription className="mb-4">
+        {page.data.description}
+      </DocsDescription>
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents }} />
+        <MDX components={{ ...defaultMdxComponents, Tab, Tabs }} />
       </DocsBody>
     </DocsPage>
   );

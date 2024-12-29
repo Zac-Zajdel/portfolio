@@ -1,6 +1,7 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 
 export const baseOptions: BaseLayoutProps = {
+  githubUrl: 'https://github.com/Zac-Zajdel',
   nav: {
     title: 'Learning With Zac',
   },
