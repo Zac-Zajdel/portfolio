@@ -30,7 +30,7 @@
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.4.20",
     "dedent": "^1.5.3",
-    "eslint": "^8",
+    "eslint": "^9",
     "eslint-config-next": "15.1.2",
     "eslint-config-prettier": "^9.1.0",
     "postcss": "^8.4.49",
