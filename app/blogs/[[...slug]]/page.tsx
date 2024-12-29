@@ -32,7 +32,7 @@ export default async function Page(props: {
         path: `content/blogs/${page.file.path}`,
       }}
     >
-      <DocsTitle className="-mb-2">{page.data.title}</DocsTitle>
+      <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription className="mb-4">
         {page.data.description}
       </DocsDescription>
