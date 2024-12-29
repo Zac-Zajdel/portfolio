@@ -28,15 +28,7 @@ export async function GET() {
       response.status > 400 ||
       response.data.currently_playing_type !== 'track'
     ) {
-      return NextResponse.json(
-        { isPlaying: false },
-        {
-          status: 200,
-          headers: {
-            'Cache-Control': 'public, s-maxage=180, stale-while-revalidate=90',
-          },
-        },
-      );
+      return NextResponse.json({ isPlaying: false }, { status: 200 });
     }
 
     return NextResponse.json(
@@ -50,24 +42,11 @@ export async function GET() {
         albumImageUrl: response.data.item.album.images[0].url,
         songUrl: response.data.item.external_urls.spotify,
       },
-      {
-        status: 200,
-        headers: {
-          'Cache-Control': 'public, s-maxage=180, stale-while-revalidate=90',
-        },
-      },
+      { status: 200 },
     );
   } catch (error) {
     console.error('Error fetching Spotify data:', error);
-    return NextResponse.json(
-      { isPlaying: false },
-      {
-        status: 500,
-        headers: {
-          'Cache-Control': 'public, s-maxage=180, stale-while-revalidate=90',
-        },
-      },
-    );
+    return NextResponse.json({ isPlaying: false }, { status: 500 });
   }
 }
 
