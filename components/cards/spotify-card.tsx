@@ -16,9 +16,13 @@ async function fetchSpotifyData() {
     : 'http://localhost:3000';
 
   try {
-    return await (await fetch(`${baseUrl}/api/spotify`)).json();
+    const response = await fetch(`${baseUrl}/api/spotify`, {
+      cache: 'no-store',
+    });
+    return await response.json();
   } catch (error) {
     console.error('Error fetching Spotify data:', error);
+    return { isPlaying: false };
   }
 }
 

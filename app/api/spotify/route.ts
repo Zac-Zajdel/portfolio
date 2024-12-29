@@ -23,20 +23,8 @@ export async function GET() {
   try {
     const response = await getNowPlaying();
 
-    if (
-      response.status === 204 ||
-      response.status > 400 ||
-      response.data.currently_playing_type !== 'track'
-    ) {
-      return NextResponse.json(
-        { isPlaying: false },
-        {
-          status: 200,
-          headers: {
-            'Cache-Control': 'public, s-maxage=180, stale-while-revalidate=90',
-          },
-        },
-      );
+    if (!response.data || response.data.currently_playing_type !== 'track') {
+      return NextResponse.json({ isPlaying: false }, { status: 200 });
     }
 
     return NextResponse.json(
@@ -50,30 +38,17 @@ export async function GET() {
         albumImageUrl: response.data.item.album.images[0].url,
         songUrl: response.data.item.external_urls.spotify,
       },
-      {
-        status: 200,
-        headers: {
-          'Cache-Control': 'public, s-maxage=180, stale-while-revalidate=90',
-        },
-      },
+      { status: 200 },
     );
   } catch (error) {
     console.error('Error fetching Spotify data:', error);
-    return NextResponse.json(
-      { isPlaying: false },
-      {
-        status: 500,
-        headers: {
-          'Cache-Control': 'public, s-maxage=180, stale-while-revalidate=90',
-        },
-      },
-    );
+    return NextResponse.json({ isPlaying: false }, { status: 500 });
   }
 }
 
 const getNowPlaying = async (): Promise<{
   status: number;
-  data: SpotifyData;
+  data: SpotifyData | null;
 }> => {
   const accessToken = await getAccessToken();
 
@@ -86,8 +61,17 @@ const getNowPlaying = async (): Promise<{
     },
   );
 
-  const data: SpotifyData = await response.json();
-  return { status: response.status, data };
+  if (response.status === 204 || response.status > 400) {
+    return { status: response.status, data: null };
+  }
+
+  try {
+    const data: SpotifyData = await response.json();
+    return { status: response.status, data };
+  } catch (error) {
+    console.error('Error parsing Spotify currently-playing response:', error);
+    return { status: response.status, data: null };
+  }
 };
 
 const getAccessToken = async (): Promise<string> => {
