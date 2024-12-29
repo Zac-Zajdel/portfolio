@@ -60,7 +60,7 @@ export default async function SpotifyCard() {
               {spotifyData?.isPlaying ? spotifyData.artist : 'Spotify'}
             </span>
             {spotifyData?.isPlaying ? (
-              <span className="size-6 fill-green-500">
+              <span className="ml-2 size-5 fill-green-500">
                 <Spotify />
               </span>
             ) : null}

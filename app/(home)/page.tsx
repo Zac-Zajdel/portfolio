@@ -11,16 +11,16 @@ export default function HomePage() {
       <div className="place-items-center lg:grid lg:grid-cols-3 lg:gap-x-16">
         <div className="col-span-2">
           <h1 className="text-4xl md:text-5xl">Zac Zajdel</h1>
-          <p className="pt-3 text-fd-muted-foreground">
+          <p className="pt-4 text-fd-muted-foreground">
             Full-Stack Software Engineer
           </p>
-          <p className="pt-2">
+          <p className="pt-3">
             I&apos;m lucky — I get to build full stack web apps for a living.
             There&apos;s nothing better than bringing ideas to life and picking
             up new skills along the way! Feel free to take a look around and hit
             me up on my socials below 😊
           </p>
-          <div className="flex items-center space-x-6 pt-4">
+          <div className="flex items-center space-x-6 pt-5">
             <a
               className="size-5 fill-black dark:fill-white"
               aria-label="Follow me on Github"

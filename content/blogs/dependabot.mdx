@@ -1,0 +1,43 @@
+---
+title: Dependabot Configuration
+description: Use Dependabot to keep your project up-to-date.
+date: March 29th, 2023
+---
+
+## What is Dependabot?
+
+[Dependabot](https://github.com/dependabot) is an automation tool to simplify dependency management. With minimal setup,
+Dependabot will identify packages in your repository that have available updates and automatically create pull requests on your behalf.
+
+## How to Integrate Dependabot into Your Project
+
+1. Create a `.github` folder in your root directory.
+2. Inside that folder add a `dependabot.yml` file and add the following content:
+
+```js title=".github/dependabot.yml" copy
+version: 2,
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+    assignees:
+      - "YOUR_GITHUB_USERNAME"
+    labels:
+      - "dependencies"
+```
+
+3. Go into your Github projects `Settings` tab.
+4. Click on `Code security and analysis` and enable `Dependabot security updates`.
+5. Congrats! You now have Dependabot integrated into your project.
+
+## Config settings
+
+- `version` - Specifies which version of Dependabot to use
+- `package-ecosystem` - Package manager you want Dependabot to monitor
+- `directory` - Where Dependabot can find your `package.json` file
+- `schedule.interval` - Specific interval to check for updates.
+- `schedule.day` - Specific day to check for updates.
+- `assignees` - The github user who gets assigned the PR
+- `labels` - Labels that will be added to the PR

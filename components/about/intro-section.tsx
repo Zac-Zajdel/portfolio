@@ -26,24 +26,25 @@ export default function IntroSection() {
           </Suspense>
         </div>
         <div className="col-span-3 place-items-center pt-2">
-          Hey 👋
+          Hi there! 👋
           <br />
           <br />
-          I&apos;m Zac, based in Dallas, Texas, honing my craft in web
-          development. Between tackling side projects, you&apos;ll catch me
-          enjoying movies, constantly tuned into music, and hanging out with
-          friends.
+          My name is Zac Zajdel, and I&apos;m a web developer with over five
+          years of experience. Originally from Pittsburgh, Pennsylvania (Steeler
+          Nation for life 🖤💛), I now call Dallas, Texas, home. When I&apos;m
+          not coding, you&apos;ll find me watching movies, vibing to music, or
+          spending time with friends.
           <br />
           <br />
-          In the tech realm, I&apos;m a big fan for React, Vue, Laravel, and a
-          bunch of other technologies that redefine how developers bring their
-          ideas to life. This industry never lets us get bored or complacent,
-          and that&apos;s what makes it so invigorating. The commitment and
-          generosity of developers worldwide inspire me to strive for
-          excellence.
+          As a self-proclaimed nerd, I love learning new things. Check out my
+          blog where I am learning a new technology every month and talking
+          about those experiences here! This industry never lets us get bored or
+          complacent, and that&apos;s what makes it so invigorating. The
+          commitment and generosity of developers worldwide inspire me todo the
+          same.
           <br />
-          <br />I started this blog with the hope of sharing my discoveries with
-          others. It&apos;s my way of giving back to the community that has
+          <br />I started this blog with the hope of sharing what I have learned
+          with others. It&apos;s my way of giving back to the community that has
           given me so much. If you&apos;ve made it this far, let&apos;s connect
           :)
         </div>

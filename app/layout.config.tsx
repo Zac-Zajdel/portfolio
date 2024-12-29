@@ -8,7 +8,7 @@ export const baseOptions: BaseLayoutProps = {
     {
       text: 'Blog',
       label: 'Visit Blog',
-      url: '/docs',
+      url: '/blogs',
       active: 'nested-url',
     },
     {

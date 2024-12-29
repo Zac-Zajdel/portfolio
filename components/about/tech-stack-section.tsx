@@ -121,7 +121,7 @@ const knowledge: Array<TechProps> = [
 export default function TechStackSection() {
   return (
     <div>
-      <h1 className="mb-10 text-4xl md:text-5xl">Tech Stack</h1>
+      <h1 className="mb-10 text-4xl md:text-5xl">Tech Stacks</h1>
 
       <div className="flex flex-wrap justify-center">
         {knowledge.map((item: TechProps) => {
