@@ -2,10 +2,12 @@ import { getViewsSchema, storeViewsSchema } from '@/lib/zod/views';
 import { Redis } from '@upstash/redis';
 import { NextResponse, type NextRequest } from 'next/server';
 
-const { UPSTASH_REDIS_REST_URL: url, UPSTASH_REDIS_REST_TOKEN: token } =
-  process.env;
+import { env } from '@/env';
 
-const redis = new Redis({ url, token });
+const redis = new Redis({
+  url: env.UPSTASH_REDIS_REST_URL,
+  token: env.UPSTASH_REDIS_REST_TOKEN,
+});
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;

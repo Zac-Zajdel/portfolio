@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import querystring from 'querystring';
 
+import { env } from '@/env';
+
 interface SpotifyData {
   is_playing: boolean;
   item: {
@@ -16,12 +18,6 @@ interface SpotifyData {
   };
   currently_playing_type: string;
 }
-
-const {
-  SPOTIFY_CLIENT_ID: CLIENT_ID,
-  SPOTIFY_CLIENT_SECRET: CLIENT_SECRET,
-  SPOTIFY_REFRESH_TOKEN: REFRESH_TOKEN,
-} = process.env;
 
 export async function GET() {
   try {
@@ -98,12 +94,12 @@ const getAccessToken = async (): Promise<string> => {
   const res = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
-      Authorization: `Basic ${Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`,
+      Authorization: `Basic ${Buffer.from(`${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`).toString('base64')}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: querystring.stringify({
       grant_type: 'refresh_token',
-      refresh_token: REFRESH_TOKEN,
+      refresh_token: env.SPOTIFY_REFRESH_TOKEN,
     }),
   });
 
