@@ -15,8 +15,6 @@ async function fetchSpotifyData() {
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : 'http://localhost:3000';
 
-  console.log('BASE URL: ', baseUrl);
-
   try {
     return await (await fetch(`${baseUrl}/api/spotify`)).json();
   } catch (error) {
