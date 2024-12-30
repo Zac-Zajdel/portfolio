@@ -1,4 +1,9 @@
 {
   "title": "Name of Folder",
-  "pages": ["2025", "cli-to-generate-blog-post", "dependabot"]
+  "pages": [
+    "12-months-of-learning",
+    "updating-my-website",
+    "cli-to-generate-blog-post",
+    "dependabot"
+  ]
 }

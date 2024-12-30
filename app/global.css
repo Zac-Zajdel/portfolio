@@ -11,5 +11,5 @@ body {
 html[style*='color-scheme: dark'] body {
   background:
     linear-gradient(rgba(173, 173, 173, 0) 0%, rgba(7, 7, 7, 0)),
-    fixed 0 0 / 20px 30px radial-gradient(#353535 1px, transparent 0);
+    fixed 0 0 / 20px 30px radial-gradient(#252525 1px, transparent 0);
 }

@@ -40,6 +40,12 @@ Start the server using this command:
 yarn dev
 ```
 
+### 5. Create Blog Post
+
+```bash
+yarn make:blog
+```
+
 and open http://localhost:3000/ to see the landing page.
 
 ## 📁 Project structure
