@@ -2591,6 +2591,26 @@ fumadocs-core@14.6.6:
     shiki "^1.24.3"
     unist-util-visit "^5.0.0"
 
+fumadocs-core@14.6.8:
+  version "14.6.8"
+  resolved "https://registry.yarnpkg.com/fumadocs-core/-/fumadocs-core-14.6.8.tgz#c93471a91af19045d860fb5aca8266d5928c56a9"
+  integrity sha512-ajoJbeUwHTkRmxavqUpHfRuj49ABB86m/iMslrS6Dl8o4EpSjvX0ZRM3B1MIjA4nZstbolYVCGhWSH4qD89gZw==
+  dependencies:
+    "@formatjs/intl-localematcher" "^0.5.9"
+    "@orama/orama" "^2.1.1"
+    "@shikijs/rehype" "^1.24.3"
+    github-slugger "^2.0.0"
+    hast-util-to-estree "^3.1.0"
+    hast-util-to-jsx-runtime "^2.3.2"
+    image-size "^1.1.1"
+    negotiator "^1.0.0"
+    react-remove-scroll "^2.6.2"
+    remark "^15.0.0"
+    remark-gfm "^4.0.0"
+    scroll-into-view-if-needed "^3.1.0"
+    shiki "^1.24.3"
+    unist-util-visit "^5.0.0"
+
 fumadocs-docgen@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/fumadocs-docgen/-/fumadocs-docgen-1.3.4.tgz#0d96566630d056e5a3b94bc237a901d28703a939"
@@ -2634,10 +2654,10 @@ fumadocs-typescript@^3.0.2:
     shiki "^1.22.2"
     ts-morph "^24.0.0"
 
-fumadocs-ui@14.6.6:
-  version "14.6.6"
-  resolved "https://registry.yarnpkg.com/fumadocs-ui/-/fumadocs-ui-14.6.6.tgz#b64b67c28e40c89ee5375591b10feb318de42e94"
-  integrity sha512-SxrqMSF0C9za57wv8XPTizZrdq38rAcaRrEiwmGb75xJTjZiY5s2n9j9ryROYBEyrDkqw7GLwkV4WT5sk/bOnA==
+fumadocs-ui@14.6.8:
+  version "14.6.8"
+  resolved "https://registry.yarnpkg.com/fumadocs-ui/-/fumadocs-ui-14.6.8.tgz#ab44907149906f91d10ee212303feac4506544b8"
+  integrity sha512-z/yKhjl8FWPaFM64dEaJhKUsp8co4PJJmd++s3MYAT/jXbXSXYTIGgz5IsIzqjwoVfU5e766E3GfyzYx4hitAQ==
   dependencies:
     "@radix-ui/react-accordion" "^1.2.2"
     "@radix-ui/react-collapsible" "^1.1.2"
@@ -2649,7 +2669,7 @@ fumadocs-ui@14.6.6:
     "@radix-ui/react-slot" "^1.1.1"
     "@radix-ui/react-tabs" "^1.1.2"
     class-variance-authority "^0.7.1"
-    fumadocs-core "14.6.6"
+    fumadocs-core "14.6.8"
     lodash.merge "^4.6.2"
     lucide-react "^0.469.0"
     next-themes "^0.4.4"
