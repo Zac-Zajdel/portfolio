@@ -10,17 +10,31 @@ description: A potential replacement for REST?
 > gives clients the power to ask for exactly what they need and nothing more,
 > makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-Sounds amazing right? The client asking for specific content and only getting that?
-As someone who has worked with clients while building a REST API, this is a constant struggle.
-An endpoint that has all the data one customer needs might not work for another.
-This problem is completely avoidable using GraphQL as long as your schema supports it!
-Over the next couple sections, I will dive into how I learned the basics, the pros, the cons, and my overall thoughts.
+The ability for clients to request only the necessary data is a compelling feature.
+From my experience working with REST APIs, managing different data requirements for various clients is often a challenge.
+An endpoint that meets one client's needs may be insufficient for another, leading to inefficiencies and workarounds.
+With GraphQL, this issue is largely mitigated, provided the schema is well-structured.
+In this article, I will explore my learning journey with GraphQL, discuss its advantages and drawbacks, and share my overall impressions.
 
 ---
 
 ## Learning GraphQL 101 🧠
 
-TODO
+I always like to start out with the docs and the [GraphQL Docs](https://graphql.org/learn/) were excellent
+and provided a solid foundation in core concepts such as schema building, queries, mutations, etc...
+
+Once I got a grasp of the fundamentals, I was ready to put hands to the keyboard.
+Having heard about [Apollo](https://www.apollographql.com/) as a popular way to implement GraphQL, I explored their
+[tutorials](https://www.apollographql.com/tutorials/browse) which turned out to be some of the best educational resources I've discovered.
+Hats off to the team at Apollo!
+
+I started with [Intro to GraphQL with TypeScript & Apollo Server](https://www.apollographql.com/tutorials/intro-typescript)
+which focused just on the API implementation such as building the schema, resolvers, and mutations.
+The tutorial code I followed can be found in this [Repository](https://github.com/Zac-Zajdel/learning-graphql/tree/main/backend-learning).
+
+After completing that, I began the [Full Stack GraphQL Path](https://www.apollographql.com/tutorials/lift-off-part1)
+which connects a React front-end to an Apollo server building a similar API.
+The tutorial code I followed can be found in this [Repository](https://github.com/Zac-Zajdel/learning-graphql/tree/main/backend-learninghttps://github.com/Zac-Zajdel/learning-graphql/tree/main/full-stack-learning).
 
 ---
 
@@ -39,9 +53,20 @@ TODO
 - N+1 Queries are very easy to introduce.
 - Query depth and complexity are items you must protect against.
 - A client can ask for too much information that leads to poor performance.
+- It appears the community and overall hype has faded away which isn't a good sign.
 
 ---
 
 ## Conclusion
 
-TODO
+The benefits of GraphQL are evident. I really enjoyed the high quality tutorials created by the Apollo team
+and always enjoy getting to work with new technology. That being said, I don't foresee myself using GraphQL in the future for any side project.
+
+The benefits do not justify the excess complexity of setting up GraphQL for something that will never leave my Github repo.
+Additionally with [Server Components](https://react.dev/reference/rsc/server-components) entering the mainstream and many
+popular meta-frameworks optimizing RESTful API interactions, GraphQL feels less necessary in my current development workflow.
+
+That all being said, I have signed up to a couple newsletters to stay up-to-date with the latest updates.
+I'm sure I'll revisit GraphQL in the future either for a side project or for work purposes.
+
+Thanks for reading 👋
