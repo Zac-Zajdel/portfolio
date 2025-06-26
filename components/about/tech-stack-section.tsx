@@ -1,6 +1,7 @@
 import TechStackCard from '@/components/cards/tech-stack-card';
 import { IconType } from 'react-icons';
 import { FaVuejs } from 'react-icons/fa';
+import { FaAws } from 'react-icons/fa6';
 import {
   SiLaravel,
   SiMysql,
@@ -25,11 +26,11 @@ interface TechProps {
   url: string;
 }
 
-const knowledge: Array<TechProps> = [
+const knowledge: TechProps[] = [
   {
     name: 'Next',
     icon: SiNextdotjs,
-    fill: '#0370F3',
+    fill: '#323031',
     url: 'https://nextjs.org/',
   },
   {
@@ -41,13 +42,13 @@ const knowledge: Array<TechProps> = [
   {
     name: 'Nuxt',
     icon: SiNuxtdotjs,
-    fill: '#48B884',
+    fill: '#009f5f',
     url: 'https://nuxtjs.org/',
   },
   {
     name: 'Vue',
     icon: FaVuejs,
-    fill: '#3F7F70',
+    fill: '#35a975',
     url: 'https://vuejs.org/',
   },
   {
@@ -59,7 +60,7 @@ const knowledge: Array<TechProps> = [
   {
     name: 'TypeScript',
     icon: SiTypescript,
-    fill: '#007ACC',
+    fill: '#27609e',
     url: 'https://www.typescriptlang.org/',
   },
   {
@@ -83,7 +84,7 @@ const knowledge: Array<TechProps> = [
   {
     name: 'MySQL',
     icon: SiMysql,
-    fill: '#E48E1A',
+    fill: '#c2740e',
     url: 'https://www.mysql.com/',
   },
   {
@@ -93,10 +94,22 @@ const knowledge: Array<TechProps> = [
     url: 'https://www.postgresql.org/',
   },
   {
-    name: 'PlanetScale',
-    icon: TbBrandPlanetscale,
-    fill: '#E1E1E1',
-    url: 'https://planetscale.com/',
+    name: 'Prisma',
+    icon: SiPrisma,
+    fill: '#4852ad',
+    url: 'https://www.prisma.io/',
+  },
+  {
+    name: 'Vercel',
+    icon: SiVercel,
+    fill: '#323031',
+    url: 'https://vercel.com/',
+  },
+  {
+    name: 'AWS',
+    icon: FaAws,
+    fill: '#F29100',
+    url: 'https://aws.amazon.com/',
   },
   {
     name: 'Supabase',
@@ -105,16 +118,10 @@ const knowledge: Array<TechProps> = [
     url: 'https://supabase.com/',
   },
   {
-    name: 'Prisma',
-    icon: SiPrisma,
-    fill: '#308988',
-    url: 'https://www.prisma.io/',
-  },
-  {
-    name: 'Vercel',
-    icon: SiVercel,
-    fill: '#E10990',
-    url: 'https://vercel.com/',
+    name: 'PlanetScale',
+    icon: TbBrandPlanetscale,
+    fill: '#E1E1E1',
+    url: 'https://planetscale.com/',
   },
 ];
 

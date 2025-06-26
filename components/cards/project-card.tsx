@@ -2,6 +2,7 @@
 
 import Loading from '@/components/icons/loading';
 import { Project } from '@/types/project';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { LuExternalLink, LuEye } from 'react-icons/lu';
 
@@ -29,39 +30,51 @@ export default function ProjectCard({ project }: { project: Project }) {
   };
 
   return (
-    <div className="flex h-full w-full flex-col justify-between rounded-lg border bg-slate-200/[.01] shadow">
-      <div className="flex h-full flex-col items-start space-y-2.5 p-5">
-        <h1 className="h-10 overflow-hidden truncate text-ellipsis whitespace-nowrap pt-2 text-lg font-semibold leading-snug tracking-tight">
-          {project.title}
-        </h1>
-        <p className="text-xs text-fd-muted-foreground">
-          {project.description}
-        </p>
+    <div className="group flex h-full w-full flex-col overflow-hidden rounded-xl border bg-slate-200/[.01] transition-all duration-300 hover:translate-y-[-3px]">
+      <div className="relative aspect-[17/9] w-full overflow-hidden bg-slate-50 dark:bg-slate-50">
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`${project.title} preview`}
+            fill
+            className="object-cover"
+          />
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+            <LuEye className="size-8 text-slate-800" />
+            <p className="text-center text-slate-800">Project Coming Soon</p>
+          </div>
+        )}
       </div>
 
-      <div
-        data-orientation="horizontal"
-        role="none"
-        className="w-full border opacity-75"
-      />
+      <div className="flex flex-1 flex-col justify-between p-4">
+        <div className="space-y-2">
+          <h2 className="text-xl font-medium tracking-tight">
+            {project.title}
+          </h2>
+          <p className="text-sm leading-relaxed">{project.description}</p>
+        </div>
 
-      <div className="flex items-center justify-between gap-4 px-4 py-2">
-        <button className="flex cursor-default items-center space-x-2.5">
-          <LuEye className="size-5" />
-          {isLoading ? <Loading /> : <p className="text-xs">{count}</p>}
-        </button>
-        <a
-          className="cursor-pointer hover:text-blue-300"
-          aria-label="Visit Project"
-          target="_blank"
-          rel="noreferrer"
-          href={project.url}
-        >
-          <LuExternalLink
-            className="size-4"
+        <div className="mt-6 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <LuEye className="size-sm" />
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <span className="text-xs font-medium">{count}</span>
+            )}
+          </div>
+          <a
+            className="group/link flex items-center gap-2 font-medium"
+            aria-label="Visit Project"
+            target="_blank"
+            rel="noreferrer"
+            href={project.url}
             onClick={incrementViewCount}
-          />
-        </a>
+          >
+            <LuExternalLink className="size-sm transition-transform group-hover/link:translate-x-0.5" />
+          </a>
+        </div>
       </div>
     </div>
   );

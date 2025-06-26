@@ -15,10 +15,11 @@ export default function HomePage() {
             Full-Stack Software Engineer
           </p>
           <p className="pt-3">
-            I&apos;m lucky — I get to build full stack web apps for a living.
-            There&apos;s nothing better than bringing ideas to life and picking
-            up new skills along the way! Feel free to take a look around and hit
-            me up on my socials below 😊
+            Hi there! I&apos;m a full-stack web developer with a passion for
+            turning ideas into interactive, real-world applications. I love the
+            challenge of building from the ground up and constantly learning new
+            tools and technologies. Take a look around and feel free to connect
+            with me through my socials below! 😊
           </p>
           <div className="flex items-center space-x-6 pt-5">
             <a
@@ -43,7 +44,7 @@ export default function HomePage() {
               aria-label="Follow me on LinkedIn"
               target="_blank"
               rel="noreferrer"
-              href="https://www.linkedin.com/in/zac-zajdel-9b832b191/"
+              href="https://www.linkedin.com/in/zachary-zajdel-9b832b191"
             >
               <Linkedin />
             </a>
@@ -61,7 +62,7 @@ export default function HomePage() {
         </div>
         <div className="col-span-1 place-items-center pt-10 xl:pt-0">
           <Image
-            src="/static/me.jpeg"
+            src="/static/me.jpg"
             alt="avatar"
             width={152}
             height={152}
