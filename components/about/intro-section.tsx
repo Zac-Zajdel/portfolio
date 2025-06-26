@@ -10,7 +10,7 @@ export default function IntroSection() {
       <div className="place-items-center lg:grid lg:grid-cols-5 lg:gap-x-8">
         <div className="col-span-2 place-items-center">
           <Image
-            src="/static/me.jpeg"
+            src="/static/me.jpg"
             alt="avatar"
             width={152}
             height={152}

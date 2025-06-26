@@ -21,7 +21,7 @@ const projects: Project[] = [
 export default function ProjectsPage() {
   return (
     <main className="container mx-auto space-y-10">
-      <h1 className="text-4xl md:px-16 md:text-5xl xl:px-48">Projects</h1>
+      <h1 className="text-4xl md:px-16 md:text-5xl xl:px-44">Projects</h1>
       <div className="sm:px-5 md:px-24 lg:px-48 xl:px-72">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
           {projects.map((project, index) => {
