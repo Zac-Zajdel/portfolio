@@ -56,10 +56,7 @@ const run = async () => {
   });
   console.log(description);
 
-  const answers = {
-    title,
-    description,
-  };
+  const answers = { title, description };
 
   const fileContent = await generateContent(answers);
   const fileName = answers.title.toLowerCase().split(' ').join('-');

@@ -1,0 +1,287 @@
+---
+title: Dynamic Badge Tooltips
+description: Dynamic Truncating Badges with Tooltips in React
+---
+
+## Introduction
+
+Badges are a common UI element for displaying tags, categories, or statuses. But what happens when the text inside a badge is too long to fit nicely?
+A great user experience is to show a tooltip with the full text, but only when the text is actually truncated.
+In this post, we'll explore a React component that does exactly that: it detects when a badge's text is truncated and conditionally displays a tooltip.
+
+## The Problem: Truncated Text in Badges
+
+When displaying tags or labels, it's common to limit their width to keep the UI clean.
+However, this can lead to text being cut off, especially for long tag names.
+Showing a tooltip with the full text is helpful but we only want to show it if the text is actually truncated.
+
+## The Solution: Measuring Truncation in React
+
+The custom badge component solves this by:
+
+1. Rendering the tag name inside a span with the TailwindCSS [truncate](https://tailwindcss.com/docs/text-overflow#truncating-text) utility class.
+2. Using a React `ref` to access the DOM node of the span.
+3. Comparing the `span` elements [scrollWidth](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth) and [clientWidth](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth) to determine if the text is truncated.
+4. Conditionally wrapping the badge in a tooltip if truncation is detected.
+
+Here's the relevant parts of the implementation:
+
+```tsx title="Truncation Detection"
+const textRef = useRef<HTMLSpanElement>(null);
+const [isTruncated, setIsTruncated] = useState(false);
+
+useEffect(() => {
+  const spanElement = textRef.current;
+  if (spanElement) {
+    setIsTruncated(spanElement.scrollWidth > spanElement.clientWidth);
+  }
+}, [tag.name]);
+```
+
+```tsx title="Conditional Tooltip Rendering"
+return isTruncated ? (
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger asChild>{badge}</TooltipTrigger>
+      <TooltipContent>{tag.name}</TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+) : (
+  badge
+);
+```
+
+### How Does This Work?
+
+- [clientWidth](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth) is the visible width of the element, including padding but not the scrollbar, border, or margin.
+- [scrollWidth](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth) is the total width of the element's content, including the part not visible on the screen due to overflow.
+- If `scrollWidth` is greater than `clientWidth`, it means some content is hidden (truncated).
+
+## Why This Matters
+
+This approach provides a seamless user experience: tooltips only appear when they're needed, keeping the UI clean and accessible.
+It's a great example of combining React's DOM access with simple browser APIs to solve a common problem.
+
+## Try It Yourself
+
+Below is a full implementation of my custom `TagBadge` component. I have included the associated types and color picker component for convenience for a full solution:
+
+```jsx title="TagBadge.tsx"
+'use client';
+
+import { Badge } from '@/components/ui/badge';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { cn } from '@/lib/utils';
+import { colorPickerOptions } from '@/types/colorPicker';
+import { X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+
+type TagContent = { id?: string; name: string; color?: string };
+
+type TagBadgeProps = {
+  tag: TagContent;
+  className?: string;
+  onRemove?: (tag: TagContent) => void;
+  disabled?: boolean;
+};
+
+export function TagBadge({
+  tag,
+  className,
+  disabled,
+  onRemove,
+}: TagBadgeProps) {
+  const pickedColor = colorPickerOptions.find(
+    (color) => color.name === tag.color,
+  );
+
+  const textRef = useRef<HTMLSpanElement>(null);
+  const [isTruncated, setIsTruncated] = useState(false);
+
+  useEffect(() => {
+    const spanElement = textRef.current;
+    if (spanElement) {
+      setIsTruncated(spanElement.scrollWidth > spanElement.clientWidth);
+    }
+  }, [tag.name]);
+
+  const badge = (
+    <Badge
+      style={{ backgroundColor: pickedColor?.color }}
+      className={cn(
+        pickedColor?.darkText ? 'text-black' : 'text-white',
+        'max-w-64',
+        className,
+      )}
+    >
+      <span
+        ref={textRef}
+        className="block truncate"
+      >
+        {tag.name}
+      </span>
+      <button
+        type="button"
+        disabled={disabled}
+        className={cn(
+          'ring-offset-background focus:ring-ring ml-2 cursor-pointer rounded-full outline-none focus:ring-2 focus:ring-offset-2',
+          !onRemove && 'hidden',
+          disabled && 'cursor-not-allowed opacity-50',
+        )}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            onRemove?.(tag);
+          }
+        }}
+        onMouseDown={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
+        onClick={() => onRemove?.(tag)}
+      >
+        <X
+          className={cn(
+            'size-3',
+            pickedColor?.darkText ? 'text-black' : 'text-white',
+          )}
+        />
+      </button>
+    </Badge>
+  );
+
+  return isTruncated ? (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>{badge}</TooltipTrigger>
+        <TooltipContent>{tag.name}</TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  ) : (
+    badge
+  );
+}
+```
+
+```tsx title="ColorPicker.tsx"
+'use client';
+
+import { Button } from '@/components/ui/button';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
+import { ColorPickerName, colorPickerOptions } from '@/types/colorPicker';
+import { Paintbrush } from 'lucide-react';
+
+export function ColorPicker({
+  color,
+  setColor,
+  className,
+}: {
+  color: string;
+  setColor: (color: ColorPickerName) => void;
+  className?: string;
+}) {
+  const hexColor = colorPickerOptions.find((s) => s.name === color)?.color;
+
+  return (
+    <Popover modal={true}>
+      <PopoverTrigger asChild>
+        <Button
+          variant={'outline'}
+          className={cn(
+            'w-[320px] justify-start text-left font-normal',
+            !color && 'text-muted-foreground',
+            className,
+          )}
+        >
+          <div className="flex w-full items-center gap-2">
+            {hexColor ? (
+              <div
+                className="h-4 w-4 rounded !bg-cover !bg-center transition-all"
+                style={{ background: hexColor }}
+              />
+            ) : (
+              <Paintbrush className="h-4 w-4" />
+            )}
+            <div className="flex-1 truncate">
+              {color ? color : 'Pick a color'}
+            </div>
+          </div>
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-72">
+        <div className="mt-0 flex flex-wrap gap-1">
+          {colorPickerOptions.map((s) => (
+            <div
+              key={s.name}
+              style={{ background: s.color }}
+              className="h-6 w-6 cursor-pointer rounded-md active:scale-105"
+              onClick={() => setColor(s.name)}
+            />
+          ))}
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+```ts title="colorPicker.ts"
+export const colorPickerValues = [
+  'White',
+  'Red',
+  'Pink',
+  'Purple',
+  'Deep Purple',
+  'Indigo',
+  'Blue',
+  'Light Blue',
+  'Teal',
+  'Green',
+  'Lime',
+  'Yellow',
+  'Amber',
+  'Orange',
+  'Deep Orange',
+  'Brown',
+  'Blue Gray',
+  'Black',
+] as const;
+
+export type ColorPickerName = (typeof colorPickerValues)[number];
+
+export type ColorPickerOption = {
+  name: ColorPickerName;
+  color: string;
+  darkText: boolean;
+};
+
+export const colorPickerOptions: ColorPickerOption[] = [
+  { name: 'White', color: '#F4F4F5', darkText: true },
+  { name: 'Red', color: '#EF4444', darkText: false },
+  { name: 'Pink', color: '#EC4899', darkText: false },
+  { name: 'Purple', color: '#A78BFA', darkText: false },
+  { name: 'Deep Purple', color: '#7C3AED', darkText: false },
+  { name: 'Indigo', color: '#6366F1', darkText: false },
+  { name: 'Blue', color: '#3B82F6', darkText: false },
+  { name: 'Light Blue', color: '#38BDF8', darkText: false },
+  { name: 'Teal', color: '#14B8A6', darkText: false },
+  { name: 'Green', color: '#22C55E', darkText: false },
+  { name: 'Lime', color: '#A3E635', darkText: true },
+  { name: 'Yellow', color: '#FACC15', darkText: true },
+  { name: 'Amber', color: '#FBBF24', darkText: true },
+  { name: 'Orange', color: '#FB923C', darkText: false },
+  { name: 'Deep Orange', color: '#F97316', darkText: false },
+  { name: 'Brown', color: '#A16207', darkText: false },
+  { name: 'Blue Gray', color: '#64748B', darkText: false },
+  { name: 'Black', color: '#18181B', darkText: false },
+];
+```
