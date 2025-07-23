@@ -32,8 +32,10 @@ export default async function Page(props: {
         path: `content/blogs/${page.file.path}`,
       }}
     >
-      <DocsTitle className="-mb-2">{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsTitle className="-mb-3">{page.data.title}</DocsTitle>
+      <DocsDescription className="mb-2">
+        {page.data.description}
+      </DocsDescription>
       <DocsBody>
         <MDX components={{ ...defaultMdxComponents, Tab, Tabs }} />
       </DocsBody>
@@ -52,8 +54,5 @@ export async function generateMetadata(props: {
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
-  return {
-    title: page.data.title,
-    description: page.data.description,
-  };
+  return { title: page.data.title, description: page.data.description };
 }
