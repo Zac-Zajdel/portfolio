@@ -1,0 +1,187 @@
+---
+title: CLI Tool To Generate Blog Post
+---
+
+Command Line Interface (CLI) tools are essential in a developer's toolkit, facilitating various tasks.
+This guide aims to walkthrough the process of developing a CLI tool that generates files in [Frontmatter](https://mdxjs.com/guides/frontmatter/) format,
+similar to the one used in this blog.
+
+## Prerequisites
+
+Ensure the following dependencies are installed:
+
+- [@inquirer/prompts](https://github.com/SBoudrias/Inquirer.js)
+- [dedent](https://github.com/dmnd/dedent)
+
+```package-install
+-D @inquirer/prompts dedent
+```
+
+## Utilizing Inquirer
+
+Begin by creating a `run()` function.
+This function utilizes the Inquirer package to solicit the user's input for a title and description.
+
+```javascript title="blog-creation.mjs" copy
+const run = async () => {
+  const title = await input({
+    message: 'Enter Title:',
+    validate: function (value) {
+      if (!value) {
+        return 'Title is required.';
+      }
+      return true;
+    },
+  });
+  console.log(title);
+
+  const description = await input({
+    message: 'Enter description',
+    validate: function (value) {
+      if (!value) {
+        return 'Description is required.';
+      }
+      return true;
+    },
+  });
+  console.log(description);
+};
+
+run();
+```
+
+Key components of the above snippet:
+
+- Solicit the user for a `title` and `description`.
+- The `message` property indicates the prompt for the user.
+- The `validate` property ensures input compliance (e.g., required, length constraints).
+- Outputs the captured data using `console.log()`.
+
+## Formatting and File Generation
+
+- The `dedent` package is used for formatting the responses into a structured multi-line format.
+- Use the `fs` module to create a file with the generated content in the desired directory.
+- **NOTE**: Ensure the `filePath` aligns with your project's directory structure.
+
+```javascript title="blog-creation.mjs" copy
+const fileContent = dedent`
+    ---
+    title: ${title}
+    description: ${description}
+    ---
+
+    ## Introduction
+
+    ### Sub Header
+  `;
+const fileName = title.toLowerCase().split(' ').join('-');
+const filePath = `content/blogs/${fileName}.mdx`;
+
+// Create file
+fs.writeFile(filePath, fileContent, (err) => {
+  if (err) {
+    throw err;
+  } else {
+    console.log(`blog generated at ${filePath}`);
+  }
+});
+```
+
+## Executing Your Script
+
+Include your scripts reference in your `package.json`:
+
+```json title="package.json" copy
+  scripts: {
+    "make:blog": "node ./scripts/blog-creation.mjs run"
+  }
+```
+
+You now have a functional CLI tool that captures user input, formats it, and outputs a structured file!
+
+## Full Code Implementation
+
+```javascript title="blog-creation.mjs" copy
+import * as fs from 'fs';
+import dedent from 'dedent';
+import { input } from '@inquirer/prompts';
+
+function countFiles(directoryPath) {
+  return new Promise((resolve, reject) => {
+    fs.readdir(directoryPath, (err, files) => {
+      if (err) {
+        reject(`Error reading directory: ${err}`);
+      } else {
+        const fileCount = files.filter((file) =>
+          fs.statSync(`${directoryPath}/${file}`).isFile(),
+        ).length;
+        resolve(fileCount);
+      }
+    });
+  });
+}
+
+const generateContent = async (answers) => {
+  const total = await countFiles('content/blogs');
+
+  return dedent`
+      ---
+      title: ${answers.title}
+      description: ${answers.description}
+      order: ${total + 1}
+      ---
+
+      ## Introduction
+
+      ### Sub Header
+    `;
+};
+
+const run = async () => {
+  const title = await input({
+    message: 'Enter Title:',
+    validate: function (value) {
+      if (!value) {
+        return 'Title is required.';
+      }
+      return true;
+    },
+  });
+  console.log(title);
+
+  const description = await input({
+    message: 'Enter description',
+    validate: function (value) {
+      if (!value) {
+        return 'Description is required.';
+      }
+      return true;
+    },
+  });
+  console.log(description);
+
+  const answers = {
+    title,
+    description,
+  };
+
+  const fileContent = await generateContent(answers);
+  const fileName = answers.title.toLowerCase().split(' ').join('-');
+  const filePath = `content/blogs/${fileName}.mdx`;
+  fs.writeFile(filePath, fileContent, (err) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log(`blog generated at ${filePath}`);
+    }
+  });
+};
+
+run();
+```
+
+Run the following command and see your code come to life!
+
+```bash copy
+bun make:blog
+```

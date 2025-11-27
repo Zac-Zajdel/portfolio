@@ -7,12 +7,12 @@ export default function HomePage() {
       <p>
         You can open{' '}
         <Link
-          href="/docs"
+          href="/blogs"
           className="font-medium underline"
         >
-          /docs
+          /blogs
         </Link>{' '}
-        and see the documentation.
+        and see the blogs.
       </p>
     </div>
   );

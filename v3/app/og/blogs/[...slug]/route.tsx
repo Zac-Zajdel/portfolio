@@ -1,13 +1,17 @@
 import { getPageImage, source } from '@/lib/source';
+import { generate as DefaultImage } from 'fumadocs-ui/og';
 import { notFound } from 'next/navigation';
 import { ImageResponse } from 'next/og';
-import { generate as DefaultImage } from 'fumadocs-ui/og';
 
 export const revalidate = false;
 
 export async function GET(
   _req: Request,
-  { params }: RouteContext<'/og/docs/[...slug]'>,
+  {
+    params,
+  }: RouteContext<'/og/blogs/[...slug]'> & {
+    params: Promise<{ slug: string[] }>;
+  },
 ) {
   const { slug } = await params;
   const page = source.getPage(slug.slice(0, -1));
@@ -18,7 +22,7 @@ export async function GET(
       <DefaultImage
         title={page.data.title}
         description={page.data.description}
-        site="My App"
+        site="Learning With Zac"
       />
     ),
     {
