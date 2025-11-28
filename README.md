@@ -6,7 +6,7 @@
 - ⚛️ [React 19](https://react.dev/) - A library for web and native user interfaces
 - 📘 [Typescript](https://www.typescriptlang.org/) - JavaScript with syntax for types
 - 🎨 [TailwindCSS](https://tailwindcss.com/) - Class sorting, merging and linting
-- 🛠️ [Fumadocs](https://fumadocs.vercel.app/) - MDX framework for blogs or docs
+- 🛠️ [Fumadocs](https://fumadocs.dev/) - MDX framework for blogs or docs
 - 🔍 [Zod](https://zod.dev/) - Schema validation library
 - 🧪 [Upstash](https://upstash.com/) - Redis database for project views
 - 💅 [Prettier](https://prettier.io/) - Code formatter
@@ -25,7 +25,7 @@ git clone https://github.com/Zac-Zajdel/portfolio.git
 ### 2. Install dependencies
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ### 3. Set up environment variables
@@ -37,13 +37,7 @@ Create `.env` file and set env variables from `.env.example` file.
 Start the server using this command:
 
 ```bash
-yarn dev
-```
-
-### 5. Create Blog Post
-
-```bash
-yarn make:blog
+pnpm dev
 ```
 
 and open http://localhost:3000/ to see the landing page.
