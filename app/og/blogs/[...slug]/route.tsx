@@ -18,13 +18,11 @@ export async function GET(
   if (!page) notFound();
 
   return new ImageResponse(
-    (
-      <DefaultImage
-        title={page.data.title}
-        description={page.data.description}
-        site="Learning With Zac"
-      />
-    ),
+    <DefaultImage
+      title={page.data.title}
+      description={page.data.description}
+      site="Learning With Zac"
+    />,
     {
       width: 1200,
       height: 630,

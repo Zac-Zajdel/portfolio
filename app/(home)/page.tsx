@@ -9,7 +9,7 @@ export default function HomePage() {
       <div className="lg:grid lg:grid-cols-3 lg:place-items-center lg:gap-16">
         <div className="lg:col-span-2">
           <h1 className="text-4xl tracking-tight md:text-5xl">Zac Zajdel</h1>
-          <h2 className="mt-3 text-lg text-fd-muted-foreground">
+          <h2 className="text-fd-muted-foreground mt-3 text-lg">
             Full-Stack Software Engineer
           </h2>
           <p className="mt-5 text-balance">
@@ -28,7 +28,7 @@ export default function HomePage() {
             {socialLinks.map(({ href, label, Icon, className }) => (
               <li key={label}>
                 <a
-                  className="inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current focus-visible:ring-offset-2"
+                  className="inline-flex items-center rounded-md focus-visible:ring-2 focus-visible:ring-current focus-visible:ring-offset-2 focus-visible:outline-none"
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -99,7 +99,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               </div>
             )}
           </div>
-          <p className="text-sm text-fd-muted-foreground">
+          <p className="text-fd-muted-foreground text-sm">
             {project.description}
           </p>
         </div>

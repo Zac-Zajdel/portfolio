@@ -4,7 +4,7 @@ export default function ExperienceSection() {
   return (
     <section className="mb-10">
       <PageTitle title="Experience" />
-      <article className="max-w-none text-gray-900 dark:text-gray-100 xl:col-span-2">
+      <article className="max-w-none text-gray-900 xl:col-span-2 dark:text-gray-100">
         <header className="flex flex-wrap items-baseline gap-x-2 text-xl">
           <h3 className="font-medium">Senior Full‑Stack Software Engineer</h3>
           <span className="text-gray-400">·</span>
@@ -18,7 +18,7 @@ export default function ExperienceSection() {
           </a>
         </header>
 
-        <div className="py-3 font-mono text-sm text-fd-muted-foreground">
+        <div className="text-fd-muted-foreground py-3 font-mono text-sm">
           <time dateTime="2020-01">January 2020</time> —{' '}
           <time aria-label="Present">Present</time>
         </div>

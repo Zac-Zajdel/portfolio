@@ -1,9 +1,8 @@
 import { createMDX } from 'fumadocs-mdx/next';
-import createJiti from 'jiti';
-import { fileURLToPath } from 'node:url';
-const jiti = createJiti(fileURLToPath(import.meta.url));
+import jiti from 'jiti';
+const requireEnv = jiti(import.meta.url);
 
-jiti('./env.ts');
+requireEnv('./env.ts');
 
 const withMDX = createMDX();
 

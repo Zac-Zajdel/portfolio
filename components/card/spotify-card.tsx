@@ -56,7 +56,7 @@ export default async function SpotifyCard() {
         </div>
 
         <div className="flex-1">
-          <p className="overflow-hidden text-ellipsis text-sm">
+          <p className="overflow-hidden text-sm text-ellipsis">
             {spotifyData?.isPlaying ? spotifyData.title : 'Not Listening'}
           </p>
           <div className="font-dark flex items-center justify-between pt-2 text-xs">

@@ -8,7 +8,7 @@ export default function PageWrapper({
   className?: string;
 }) {
   return (
-    <main className={cn('xl:px-42 container mx-auto px-5', className)}>
+    <main className={cn('container mx-auto px-5 xl:px-42', className)}>
       {children}
     </main>
   );

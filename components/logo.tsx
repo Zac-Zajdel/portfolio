@@ -33,7 +33,7 @@ export default function Logo(props: HTMLAttributes<HTMLAnchorElement>) {
         />
       </svg>
       <span
-        className="mx-2 mt-[0.2rem] hidden select-none font-bold md:inline"
+        className="mx-2 mt-[0.2rem] hidden font-bold select-none md:inline"
         title="Learn with Zac"
       >
         Learn with Zac

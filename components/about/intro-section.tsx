@@ -20,7 +20,7 @@ export default function IntroSection() {
             />
             <figcaption className="mt-4">
               <h2 className="text-2xl">Zac Zajdel</h2>
-              <p className="mt-2 text-fd-muted-foreground">
+              <p className="text-fd-muted-foreground mt-2">
                 Full-Stack Software Engineer
               </p>
             </figcaption>
