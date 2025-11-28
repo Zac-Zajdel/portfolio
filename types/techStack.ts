@@ -39,7 +39,7 @@ export const techStackList: TechStack[] = [
   {
     name: 'Next',
     icon: SiNextdotjs,
-    fill: '#D3D3D3',
+    fill: '#b6b6b6',
     url: 'https://nextjs.org/',
   },
   {
@@ -105,7 +105,7 @@ export const techStackList: TechStack[] = [
   {
     name: 'Shadcn/UI',
     icon: SiShadcnui,
-    fill: '#D3D3D3',
+    fill: '#b6b6b6',
     url: 'https://ui.shadcn.com/',
   },
   {
@@ -141,13 +141,13 @@ export const techStackList: TechStack[] = [
   {
     name: 'Vercel',
     icon: SiVercel,
-    fill: '#D3D3D3',
+    fill: '#b6b6b6',
     url: 'https://vercel.com/',
   },
   {
     name: 'Railway',
     icon: SiRailway,
-    fill: '#D3D3D3',
+    fill: '#b6b6b6',
     url: 'https://railway.app/',
   },
 ];
