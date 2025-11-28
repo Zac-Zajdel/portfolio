@@ -12,7 +12,7 @@ export const docs = defineDocs({
   docs: {
     schema: frontmatterSchema,
     postprocess: {
-      includeProcessedMarkdown: true,
+      includeProcessedMarkdown: false,
     },
   },
   meta: {

@@ -2,6 +2,7 @@
 
 import Loading from '@/components/icons/loading';
 import { Project } from '@/types/projects';
+import { cn } from 'fumadocs-ui/utils/cn';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { LuEye } from 'react-icons/lu';
@@ -45,12 +46,15 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <a
-      target="_blank"
+      target={project.workInProgress ? '_self' : '_blank'}
       rel="noopener noreferrer"
       aria-label={`Visit ${project.title}`}
-      href={project.url}
-      onClick={incrementViewCount}
-      className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-neutral-200/30 bg-white/60 shadow-sm transition-all duration-300 focus-within:ring-2 focus-within:ring-neutral-900/10 focus-within:ring-offset-2 focus-within:ring-offset-white hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none dark:focus-within:ring-white/15 dark:focus-within:ring-offset-neutral-950"
+      href={project.workInProgress ? undefined : project.url}
+      onClick={project.workInProgress ? undefined : incrementViewCount}
+      className={cn(
+        'group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-neutral-200/30 bg-white/60 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none',
+        project.workInProgress ? 'cursor-default' : 'cursor-pointer',
+      )}
     >
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900">
         {project.image ? (
@@ -81,17 +85,19 @@ export default function ProjectCard({ project }: { project: Project }) {
             <h1 className="text-xl tracking-tight sm:text-lg">
               {project.title}
             </h1>
-            <div className="flex items-center gap-2">
-              <LuEye
-                className="size-3.5"
-                aria-hidden
-              />
-              {isLoading ? (
-                <Loading />
-              ) : (
-                <span className="text-xs tabular-nums">{count}</span>
-              )}
-            </div>
+            {!project.workInProgress && (
+              <div className="flex items-center gap-2">
+                <LuEye
+                  className="size-3.5"
+                  aria-hidden
+                />
+                {isLoading ? (
+                  <Loading />
+                ) : (
+                  <span className="text-xs tabular-nums">{count}</span>
+                )}
+              </div>
+            )}
           </div>
           <p className="text-sm text-fd-muted-foreground">
             {project.description}

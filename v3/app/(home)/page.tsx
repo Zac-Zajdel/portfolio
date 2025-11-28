@@ -1,59 +1,24 @@
-import Discord from '@/components/icons/discord';
-import Github from '@/components/icons/github';
-import Linkedin from '@/components/icons/linkedin';
+import PageWrapper from '@/components/core/page-wrapper';
 import Pulse from '@/components/pulse';
+import { socialLinks } from '@/types/socialLinks';
 import Image from 'next/image';
-import { MdMailOutline } from 'react-icons/md';
-
-type SocialLink = {
-  href: string;
-  label: string;
-  Icon: React.ElementType;
-  className: string;
-};
 
 export default function HomePage() {
-  const socialLinks: SocialLink[] = [
-    {
-      href: 'https://github.com/Zac-Zajdel',
-      label: 'Follow me on GitHub',
-      Icon: Github,
-      className: 'size-6 fill-black dark:fill-white',
-    },
-    {
-      href: 'mailto:zaczajdel213@gmail.com',
-      label: 'Send me an email',
-      Icon: MdMailOutline,
-      className: 'size-6',
-    },
-    {
-      href: 'https://www.linkedin.com/in/zachary-zajdel-9b832b191',
-      label: 'Follow me on LinkedIn',
-      Icon: Linkedin,
-      className: 'size-6',
-    },
-    {
-      href: 'https://discord.com/users/ZacZajdel#5036',
-      label: 'Follow me on Discord',
-      Icon: Discord,
-      className: 'size-6 fill-black dark:fill-white',
-    },
-  ];
-
   return (
-    <main className="xl:px-42 container mx-auto px-5">
+    <PageWrapper>
       <div className="lg:grid lg:grid-cols-3 lg:place-items-center lg:gap-16">
         <div className="lg:col-span-2">
           <h1 className="text-4xl tracking-tight md:text-5xl">Zac Zajdel</h1>
           <h2 className="mt-3 text-lg text-fd-muted-foreground">
             Full-Stack Software Engineer
           </h2>
-          <p className="mt-5">
-            Hi there! I&apos;m a full-stack web developer with a passion for
-            turning ideas into reality. I love the challenge of building from
-            the ground up and constantly learning new tools and technologies.
-            Take a look around and feel free to connect with me through my
-            socials below! 😊
+          <p className="mt-5 text-balance">
+            I design and build software that&apos;s fast and thoughtfully built.
+            Most days I&apos;m turning ideas into shippable features, learning
+            new tech, and obsessing over the details. You&apos;ll find recent
+            projects and blog posts throughout my site. If something sparks a
+            thought or you just want to jam on an idea, say hello! I&apos;m
+            always down for a good conversation :)
           </p>
 
           <ul
@@ -98,6 +63,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-    </main>
+    </PageWrapper>
   );
 }

@@ -5,6 +5,7 @@ export type Project = {
   description: string;
   slug: string;
   image: string | null;
+  workInProgress?: boolean;
 };
 
 export const projects: Project[] = [
@@ -23,5 +24,6 @@ export const projects: Project[] = [
     description: 'Scope Creep Management.',
     slug: 'feat_sync',
     image: null,
+    workInProgress: true,
   },
 ];

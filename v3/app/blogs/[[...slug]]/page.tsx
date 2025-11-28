@@ -6,6 +6,7 @@ import {
   DocsDescription,
   DocsPage,
   DocsTitle,
+  EditOnGitHub,
 } from 'fumadocs-ui/page';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -21,13 +22,20 @@ export default async function Page(props: PageProps<'/blogs/[[...slug]]'>) {
     <DocsPage
       toc={page.data.toc}
       full={page.data.full}
+      tableOfContent={{
+        style: 'clerk',
+        footer: (
+          <EditOnGitHub
+            href={`https://github.com/Zac-Zajdel/portfolio/blob/main/content/blogs/${page.path}`}
+          />
+        ),
+      }}
     >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX
           components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
           })}
         />

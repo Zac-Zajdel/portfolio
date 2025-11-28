@@ -5,9 +5,6 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 export default function Layout({ children }: LayoutProps<'/blogs'>) {
   return (
     <DocsLayout
-      sidebar={{
-        collapsible: false,
-      }}
       tree={source.pageTree}
       {...baseOptions()}
     >
