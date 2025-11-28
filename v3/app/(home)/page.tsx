@@ -5,8 +5,15 @@ import Pulse from '@/components/pulse';
 import Image from 'next/image';
 import { MdMailOutline } from 'react-icons/md';
 
+type SocialLink = {
+  href: string;
+  label: string;
+  Icon: React.ElementType;
+  className: string;
+};
+
 export default function HomePage() {
-  const socialLinks = [
+  const socialLinks: SocialLink[] = [
     {
       href: 'https://github.com/Zac-Zajdel',
       label: 'Follow me on GitHub',
@@ -34,14 +41,14 @@ export default function HomePage() {
   ];
 
   return (
-    <main className="xl:px-42 container mx-auto mt-20 px-5">
+    <main className="xl:px-42 container mx-auto px-5">
       <div className="lg:grid lg:grid-cols-3 lg:place-items-center lg:gap-16">
         <div className="lg:col-span-2">
           <h1 className="text-4xl tracking-tight md:text-5xl">Zac Zajdel</h1>
-          <p className="pt-4 text-fd-muted-foreground">
+          <h2 className="mt-3 text-lg text-fd-muted-foreground">
             Full-Stack Software Engineer
-          </p>
-          <p className="pt-3">
+          </h2>
+          <p className="mt-5">
             Hi there! I&apos;m a full-stack web developer with a passion for
             turning ideas into reality. I love the challenge of building from
             the ground up and constantly learning new tools and technologies.

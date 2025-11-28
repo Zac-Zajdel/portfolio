@@ -1,3 +1,15 @@
 @import 'tailwindcss';
-@import 'fumadocs-ui/css/vitepress.css';
+@import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+body {
+  background:
+    linear-gradient(rgba(173, 173, 173, 0) 0%, rgba(7, 7, 7, 0)),
+    fixed 0 0 / 20px 30px radial-gradient(#d2d0d0 1px, transparent 0);
+}
+
+html[style*='color-scheme: dark'] body {
+  background:
+    linear-gradient(rgba(173, 173, 173, 0) 0%, rgba(7, 7, 7, 0)),
+    fixed 0 0 / 20px 30px radial-gradient(#252525 1px, transparent 0);
+}
