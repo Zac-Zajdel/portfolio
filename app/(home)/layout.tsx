@@ -1,16 +1,11 @@
-import { baseOptions } from '@/app/layout.config';
+import { baseOptions } from '@/lib/layout.shared';
 import { HomeLayout } from 'fumadocs-ui/layouts/home';
-import type { ReactNode } from 'react';
 
-export default function Layout({
-  children,
-}: {
-  children: ReactNode;
-}): React.ReactElement {
+export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <HomeLayout
-      {...baseOptions}
       className="mt-20"
+      {...baseOptions()}
     >
       {children}
     </HomeLayout>

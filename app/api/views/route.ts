@@ -1,4 +1,4 @@
-import { getViewsSchema, storeViewsSchema } from '@/lib/zod/views';
+import { getViewsSchema, storeViewsSchema } from '@/lib/validation/views';
 import { Redis } from '@upstash/redis';
 import { NextResponse, type NextRequest } from 'next/server';
 
@@ -12,8 +12,7 @@ const redis = new Redis({
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
 
-  const schema = getViewsSchema();
-  const { slug } = schema.parse({
+  const { slug } = getViewsSchema().parse({
     slug: searchParams.get('slug'),
   });
 
@@ -36,8 +35,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
 
-  const schema = storeViewsSchema();
-  const { slug } = schema.parse({
+  const { slug } = storeViewsSchema().parse({
     slug: searchParams.get('slug'),
   });
 

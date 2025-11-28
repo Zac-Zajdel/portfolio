@@ -1,14 +1,12 @@
-import { baseOptions } from '@/app/layout.config';
+import { baseOptions } from '@/lib/layout.shared';
 import { source } from '@/lib/source';
-import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
-import type { ReactNode } from 'react';
+import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: LayoutProps<'/blogs'>) {
   return (
     <DocsLayout
-      sidebar={{ prefetch: false }}
       tree={source.pageTree}
-      {...baseOptions}
+      {...baseOptions()}
     >
       {children}
     </DocsLayout>
