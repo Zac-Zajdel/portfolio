@@ -1,6 +1,9 @@
+import { ReactQueryClientProvider } from '@/components/core/react-query-client-provider';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Toaster } from 'sonner';
 import './global.css';
 
 const inter = Inter({
@@ -62,7 +65,14 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col">
-        <RootProvider>{children}</RootProvider>
+        <ReactQueryClientProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+          <RootProvider>{children}</RootProvider>
+          <Toaster
+            richColors
+            visibleToasts={1}
+          />
+        </ReactQueryClientProvider>
       </body>
     </html>
   );

@@ -33,10 +33,10 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
+  const payload = await request.json();
 
   const { slug } = storeViewsSchema().parse({
-    slug: searchParams.get('slug'),
+    slug: payload.slug,
   });
 
   let count: number | null = await redis.get(slug);

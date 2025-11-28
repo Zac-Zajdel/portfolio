@@ -10,7 +10,7 @@ interface SpotifyContent {
   songUrl: string;
 }
 
-async function fetchSpotifyData() {
+const fetchSpotifyData = async (): Promise<SpotifyContent> => {
   const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : 'http://localhost:3000';
@@ -20,11 +20,17 @@ async function fetchSpotifyData() {
       next: { revalidate: 30 },
     });
     return await response.json();
-  } catch (error) {
-    console.error('Error fetching Spotify data:', error);
-    return { isPlaying: false };
+  } catch {
+    return {
+      isPlaying: false,
+      title: '',
+      album: '',
+      artist: '',
+      albumImageUrl: '',
+      songUrl: '',
+    };
   }
-}
+};
 
 export default async function SpotifyCard() {
   const spotifyData: SpotifyContent = await fetchSpotifyData();

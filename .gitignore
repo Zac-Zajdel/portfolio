@@ -18,6 +18,7 @@
 .pnp.js
 
 # others
+.env
 .env*.local
 .vercel
 next-env.d.ts
