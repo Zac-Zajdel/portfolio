@@ -17,7 +17,7 @@ async function fetchSpotifyData() {
 
   try {
     const response = await fetch(`${baseUrl}/api/spotify`, {
-      cache: 'no-store',
+      next: { revalidate: 30 },
     });
     return await response.json();
   } catch (error) {
