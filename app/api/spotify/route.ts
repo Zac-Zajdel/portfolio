@@ -1,7 +1,6 @@
+import { env } from '@/env';
 import { NextResponse } from 'next/server';
 import querystring from 'querystring';
-
-import { env } from '@/env';
 
 interface SpotifyData {
   is_playing: boolean;

@@ -1,54 +1,56 @@
-import SpotifyCard from '@/components/cards/spotify-card';
-import SpotifyCardSkeleton from '@/components/cards/spotify-card-skeleton';
+import SpotifyCard from '@/components/card/spotify-card';
+import SpotifyCardSkeleton from '@/components/card/spotify-card-skeleton';
+import PageTitle from '@/components/core/page-title';
 import Image from 'next/image';
 import { Suspense } from 'react';
 
 export default function IntroSection() {
   return (
-    <div>
-      <h1 className="mb-10 text-4xl md:text-5xl">About</h1>
-      <div className="place-items-center lg:grid lg:grid-cols-5 lg:gap-x-8">
-        <div className="col-span-2 place-items-center">
-          <Image
-            src="/static/me.jpg"
-            alt="avatar"
-            width={152}
-            height={152}
-            className="size-48 rounded-full"
-          />
-          <h2 className="pb-2 pt-4 text-2xl">Zac Zajdel</h2>
-          <p className="text-fd-muted-foreground">
-            Full-Stack Software Engineer
-          </p>
+    <section>
+      <PageTitle title="About" />
+      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-6">
+        <aside className="col-span-2">
+          <figure className="flex flex-col items-center text-center">
+            <Image
+              src="/static/me.jpg"
+              alt="Zac Zajdel"
+              width={152}
+              height={152}
+              className="size-48 rounded-full"
+            />
+            <figcaption className="mt-4">
+              <h2 className="text-2xl">Zac Zajdel</h2>
+              <p className="text-fd-muted-foreground mt-2">
+                Full-Stack Software Engineer
+              </p>
+            </figcaption>
+          </figure>
 
-          <Suspense fallback={<SpotifyCardSkeleton />}>
-            <SpotifyCard />
-          </Suspense>
-        </div>
-        <div className="col-span-3 place-items-center pt-2">
-          Hi there! 👋
-          <br />
-          <br />
-          My name is Zac Zajdel, and I&apos;m a web developer with over five
-          years of experience. Originally from Pittsburgh, Pennsylvania (Steeler
-          Nation for life 🖤💛), I now call Dallas, Texas, home. When I&apos;m
-          not coding, you&apos;ll find me watching movies, vibing to music, or
-          spending time with friends.
-          <br />
-          <br />
-          As a self-proclaimed nerd, I love learning new things. Check out my
-          blog where I am learning a new technology every month and talking
-          about those experiences here! This industry never lets us get bored or
-          complacent, and that&apos;s what makes it so invigorating. The
-          commitment and generosity of developers worldwide inspire me todo the
-          same.
-          <br />
-          <br />I started this blog with the hope of sharing what I have learned
-          with others. It&apos;s my way of giving back to the community that has
-          given me so much. If you&apos;ve made it this far, let&apos;s connect
-          :)
-        </div>
+          <div className="mt-4 flex justify-center">
+            <Suspense fallback={<SpotifyCardSkeleton />}>
+              <SpotifyCard />
+            </Suspense>
+          </div>
+        </aside>
+
+        <article className="col-span-4 space-y-4">
+          <p>Hi there! 👋</p>
+          <p>
+            I&apos;m Zac, a full‑stack software engineer with 6+ years of
+            experience building for the web. I am originally from Pittsburgh, PA
+            (Steeler Nation), but now I live in Dallas, TX. When I&apos;m not
+            shipping code, I&apos;m watching movies, curating spotify playlists,
+            playing guitar, and spending time with friends.
+          </p>
+          <p>
+            I love learning new things. I try to keep up with my favorite tech
+            creators on YouTube and X and then put what I learn into practice.
+            This site is my way of paying that forward: part lab notebook, part
+            guide. You&apos;ll find write‑ups, tutorials, and code snippets. If
+            anything sparks a thought or has helped you along the way, say hi :)
+          </p>
+        </article>
       </div>
-    </div>
+    </section>
   );
 }

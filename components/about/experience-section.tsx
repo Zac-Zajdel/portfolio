@@ -1,56 +1,46 @@
+import PageTitle from '@/components/core/page-title';
+
 export default function ExperienceSection() {
   return (
-    <div>
-      <h1 className="mb-10 text-4xl md:text-5xl">Experience</h1>
-      <div className="max-w-none text-gray-900 dark:text-gray-100 xl:col-span-2">
-        <div className="flex flex-row text-xl">
-          <span>Lead Full Stack Software Engineer&nbsp;-&nbsp;</span>
-          <span className="text-primary-color dark:text-primary-color-dark">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.rimsys.io/"
-              className="no-underline"
-            >
-              Rimsys
-            </a>
-          </span>
+    <section className="mb-10">
+      <PageTitle title="Experience" />
+      <article className="max-w-none text-gray-900 xl:col-span-2 dark:text-gray-100">
+        <header className="flex flex-wrap items-baseline gap-x-2 text-xl">
+          <h3 className="font-medium">Senior Full‑Stack Software Engineer</h3>
+          <span className="text-gray-400">·</span>
+          <a
+            href="https://www.rimsys.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#892666] hover:underline"
+          >
+            Rimsys
+          </a>
+        </header>
+
+        <div className="text-fd-muted-foreground py-3 font-mono text-sm">
+          <time dateTime="2020-01">January 2020</time> —{' '}
+          <time aria-label="Present">Present</time>
         </div>
-        <div>
-          <div className="py-3 font-mono text-sm text-fd-muted-foreground">
-            January 2020 - Current
-          </div>
-          <div className="flex flex-col">
-            <div className="flex">
-              <div className="mr-2">‣</div>
-              <p>
-                Played a pivotal role in redesigning and upgrading the platform
-                with modern technologies, improving system scalability,
-                performance, and developer efficiency while laying the
-                foundation for future growth.
-              </p>
-            </div>
-            <div className="flex">
-              <div className="mr-2">‣</div>
-              <p>
-                Led a team of developers by effectively coordinating sprint
-                objectives, managing pull request reviews, overseeing releases,
-                and facilitating productive meetings, fostering a culture of
-                collaboration and high-quality deliverables.
-              </p>
-            </div>
-            <div className="flex">
-              <div className="mr-2">‣</div>
-              <p>
-                Managed a diverse set of responsibilities, including daily
-                operations, deployments, customer support, architecture
-                discussions, and development of new features, ensuring seamless
-                functionality and continuous improvement across projects.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+        <ul className="mt-2 list-disc space-y-2 pl-4">
+          <li>
+            Modernized the Rimsys platform with a contemporary web stack and
+            scalable architecture, improving performance, reliability, and
+            developer velocity.
+          </li>
+          <li>
+            Led a cross‑functional team: set sprint goals, drove code reviews,
+            managed releases, and mentored engineers to raise code quality and
+            throughput.
+          </li>
+          <li>
+            Owned end‑to‑end delivery across architecture, deployments,
+            production operations, customer support, and feature development to
+            ensure consistent business impact.
+          </li>
+        </ul>
+      </article>
+    </section>
   );
 }

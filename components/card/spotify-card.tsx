@@ -10,21 +10,27 @@ interface SpotifyContent {
   songUrl: string;
 }
 
-async function fetchSpotifyData() {
+const fetchSpotifyData = async (): Promise<SpotifyContent> => {
   const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : 'http://localhost:3000';
 
   try {
     const response = await fetch(`${baseUrl}/api/spotify`, {
-      cache: 'no-store',
+      next: { revalidate: 30 },
     });
     return await response.json();
-  } catch (error) {
-    console.error('Error fetching Spotify data:', error);
-    return { isPlaying: false };
+  } catch {
+    return {
+      isPlaying: false,
+      title: '',
+      album: '',
+      artist: '',
+      albumImageUrl: '',
+      songUrl: '',
+    };
   }
-}
+};
 
 export default async function SpotifyCard() {
   const spotifyData: SpotifyContent = await fetchSpotifyData();
@@ -51,14 +57,12 @@ export default async function SpotifyCard() {
               className="w-16 shadow-sm"
             />
           ) : (
-            <span className="size-6 fill-green-500">
-              <Spotify />
-            </span>
+            <Spotify className="size-10 fill-green-500" />
           )}
         </div>
 
         <div className="flex-1">
-          <p className="overflow-hidden text-ellipsis text-sm">
+          <p className="overflow-hidden text-sm text-ellipsis">
             {spotifyData?.isPlaying ? spotifyData.title : 'Not Listening'}
           </p>
           <div className="font-dark flex items-center justify-between pt-2 text-xs">
@@ -66,9 +70,7 @@ export default async function SpotifyCard() {
               {spotifyData?.isPlaying ? spotifyData.artist : 'Spotify'}
             </span>
             {spotifyData?.isPlaying ? (
-              <span className="ml-2 size-5 fill-green-500">
-                <Spotify />
-              </span>
+              <Spotify className="ml-2 size-5 fill-green-500" />
             ) : null}
           </div>
         </div>

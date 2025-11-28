@@ -60,15 +60,8 @@ and open http://localhost:3000/ to see the landing page.
 ├── content                         # Blog Posts
 ├── lib                             # Validation, functions, and utilities
 ├── scripts                         # Various scripts
-├── types                           # Type definitions
 ├── tailwind.config.js              # Tailwind configuration
 ├── env.ts                          # T3-env build time ENV check
-```
-
-## 💡 Analyzing Bundle Size
-
-```bash
-ANALYZE=true yarn build
 ```
 
 ## 🤝 Contribution

@@ -1,11 +1,14 @@
-import { RootProvider } from 'fumadocs-ui/provider';
+import { ReactQueryClientProvider } from '@/components/core/react-query-client-provider';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import type { ReactNode } from 'react';
+import { Toaster } from 'sonner';
 import './global.css';
 
 const inter = Inter({
   subsets: ['latin'],
+  preload: false,
 });
 
 const META_URL =
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 };
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
@@ -62,18 +65,14 @@ export default function Layout({ children }: { children: ReactNode }) {
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col">
-        <RootProvider
-          search={{
-            links: [
-              ['Home', '/'],
-              ['Blog', '/blogs'],
-              ['Projects', '/projects'],
-              ['About Me', '/about'],
-            ],
-          }}
-        >
-          {children}
-        </RootProvider>
+        <ReactQueryClientProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+          <RootProvider>{children}</RootProvider>
+          <Toaster
+            richColors
+            visibleToasts={1}
+          />
+        </ReactQueryClientProvider>
       </body>
     </html>
   );

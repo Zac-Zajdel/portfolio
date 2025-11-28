@@ -1,8 +1,26 @@
-import { docs, meta } from '@/.source';
-import { loader } from 'fumadocs-core/source';
-import { createMDXSource } from 'fumadocs-mdx';
+import { type InferPageType, loader } from 'fumadocs-core/source';
+import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
+import { docs } from 'fumadocs-mdx:collections/server';
 
 export const source = loader({
   baseUrl: '/blogs',
-  source: createMDXSource(docs, meta),
+  source: docs.toFumadocsSource(),
+  plugins: [lucideIconsPlugin()],
 });
+
+export function getPageImage(page: InferPageType<typeof source>) {
+  const segments = [...page.slugs, 'image.png'];
+
+  return {
+    segments,
+    url: `/og/blogs/${segments.join('/')}`,
+  };
+}
+
+export async function getLLMText(page: InferPageType<typeof source>) {
+  const processed = await page.data.getText('processed');
+
+  return `# ${page.data.title}
+
+${processed}`;
+}
