@@ -17,7 +17,7 @@ const fetchSpotifyData = async (): Promise<SpotifyContent> => {
 
   try {
     const response = await fetch(`${baseUrl}/api/spotify`, {
-      next: { revalidate: 30 },
+      next: { revalidate: 0 },
     });
     return await response.json();
   } catch {
@@ -70,7 +70,7 @@ export default async function SpotifyCard() {
               {spotifyData?.isPlaying ? spotifyData.artist : 'Spotify'}
             </span>
             {spotifyData?.isPlaying ? (
-              <Spotify className="ml-2 size-5 fill-green-500" />
+              <Spotify className="ml-3 size-5 fill-green-500" />
             ) : null}
           </div>
         </div>
