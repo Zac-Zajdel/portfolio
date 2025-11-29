@@ -8,8 +8,8 @@ export default function IntroSection() {
   return (
     <section>
       <PageTitle title="About" />
-      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-6">
-        <aside className="col-span-2">
+      <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-6">
+        <aside className="col-span-1 md:col-span-2">
           <figure className="flex flex-col items-center text-center">
             <Image
               src="/static/me.jpg"
@@ -33,7 +33,7 @@ export default function IntroSection() {
           </div>
         </aside>
 
-        <article className="col-span-4 space-y-4">
+        <article className="col-span-1 space-y-4 md:col-span-4">
           <p>Hi there! 👋</p>
           <p>
             I&apos;m Zac, a full‑stack software engineer with 6+ years of

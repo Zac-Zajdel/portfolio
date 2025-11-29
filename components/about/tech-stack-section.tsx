@@ -6,7 +6,7 @@ export default function TechStackSection() {
   return (
     <section>
       <PageTitle title="Tech Stacks" />
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {techStackList.map((list) => {
           return (
             <span key={list.name}>
