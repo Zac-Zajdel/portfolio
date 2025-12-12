@@ -16,7 +16,7 @@
     "@tanstack/react-query": "^5.90.11",
     "@tanstack/react-query-devtools": "^5.91.1",
     "@upstash/redis": "^1.35.7",
-    "fumadocs-core": "16.1.0",
+    "fumadocs-core": "16.2.4",
     "fumadocs-mdx": "14.0.3",
     "fumadocs-ui": "16.1.0",
     "jiti": "^2.6.1",
